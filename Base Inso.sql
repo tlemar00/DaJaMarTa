@@ -14,12 +14,12 @@
 
 
 -- Volcando estructura de base de datos para inso1
-CREATE DATABASE IF NOT EXISTS `inso1` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
-USE `inso1`;
+CREATE DATABASE IF NOT EXISTS `insoFinal1` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */;
+USE `insoFinal1`;
 
 -- Volcando estructura para tabla inso1.categorias
 CREATE TABLE IF NOT EXISTS `categorias` (
-  `IdCategoria` int(11) NOT NULL,
+  `IdCategoria` int NOT NULL,
   `NombreCategoria` varchar(75) COLLATE armscii8_bin NOT NULL,
   PRIMARY KEY (`IdCategoria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=armscii8 COLLATE=armscii8_bin;
@@ -29,28 +29,9 @@ DELETE FROM `categorias`;
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 
--- Volcando estructura para tabla inso1.empleadobbdd
-CREATE TABLE IF NOT EXISTS `empleadobbdd` (
-  `idEmpleado` int(11) NOT NULL,
-  `Nombre` varchar(50) COLLATE armscii8_bin NOT NULL,
-  `Apellido1` varchar(75) COLLATE armscii8_bin NOT NULL,
-  `Apellido2` varchar(75) COLLATE armscii8_bin NOT NULL,
-  `NIFNIE` char(10) COLLATE armscii8_bin NOT NULL,
-  `Email` varchar(75) COLLATE armscii8_bin NOT NULL,
-  `Puesto` varchar(75) COLLATE armscii8_bin NOT NULL,
-  `IdUsuario` int(11) NOT NULL,
-  `IdCategoria` int(11) NOT NULL,
-  PRIMARY KEY (`idEmpleado`)
-) ENGINE=InnoDB DEFAULT CHARSET=armscii8 COLLATE=armscii8_bin;
-
--- Volcando datos para la tabla inso1.empleadobbdd: ~0 rows (aproximadamente)
-DELETE FROM `empleadobbdd`;
-/*!40000 ALTER TABLE `empleadobbdd` DISABLE KEYS */;
-/*!40000 ALTER TABLE `empleadobbdd` ENABLE KEYS */;
-
 -- Volcando estructura para tabla inso1.propiedades
 CREATE TABLE IF NOT EXISTS `propiedades` (
-  `IdPropiedad` int(11) NOT NULL,
+  `IdPropiedad` int NOT NULL,
   `Nombre` varchar(50) COLLATE armscii8_bin NOT NULL,
   `Precio` float NOT NULL,
   `Ubicacion` varchar(300) COLLATE armscii8_bin NOT NULL,
@@ -76,7 +57,26 @@ DELETE FROM `usuarios`;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 
+-- Volcando estructura para tabla inso1.empleadobbdd
+CREATE TABLE IF NOT EXISTS `empleadobbdd` (
+  `idEmpleado` int(11) NOT NULL,
+  `Nombre` varchar(50) COLLATE armscii8_bin NOT NULL,
+  `Apellido1` varchar(75) COLLATE armscii8_bin NOT NULL,
+  `Apellido2` varchar(75) COLLATE armscii8_bin NOT NULL,
+  `NIFNIE` char(10) COLLATE armscii8_bin NOT NULL,
+  `Email` varchar(75) COLLATE armscii8_bin NOT NULL,
+  `Puesto` varchar(75) COLLATE armscii8_bin NOT NULL,
+  `IdUsuario` varchar(100) COLLATE armscii8_bin NOT NULL,
+  `IdCategoria` int NOT NULL,
+  PRIMARY KEY (`idEmpleado`),
+  FOREIGN KEY (IdUsuario) references usuarios(IdUsuario),
+  FOREIGN KEY (IdCategoria) references categorias(IdCategoria)
+) ENGINE=InnoDB DEFAULT CHARSET=armscii8 COLLATE=armscii8_bin;
+
+-- Volcando datos para la tabla inso1.empleadobbdd: ~0 rows (aproximadamente)
+DELETE FROM `empleadobbdd`;
+/*!40000 ALTER TABLE `empleadobbdd` DISABLE KEYS */;
+/*!40000 ALTER TABLE `empleadobbdd` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

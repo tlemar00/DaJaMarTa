@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2021 12:44:29 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Propiedades" table="propiedades" catalog="insofinal1" optimistic-lock="version">
+        <id name="idPropiedad" type="int">
+            <column name="IdPropiedad" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="50" not-null="true" />
+        </property>
+        <property name="precio" type="float">
+            <column name="Precio" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="ubicacion" type="string">
+            <column name="Ubicacion" length="300" not-null="true" />
+        </property>
+        <property name="tamanio" type="java.lang.Float">
+            <column name="Tamanio" precision="12" scale="0" />
+        </property>
+        <property name="tipoPropiedad" type="string">
+            <column name="TipoPropiedad" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

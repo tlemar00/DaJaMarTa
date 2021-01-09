@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2021 12:44:29 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Usuarios" table="usuarios" catalog="insofinal1" optimistic-lock="version">
+        <id name="idUsuario" type="string">
+            <column name="IdUsuario" length="100" />
+            <generator class="assigned" />
+        </id>
+        <property name="contrasenia" type="string">
+            <column name="Contrasenia" length="24" not-null="true" />
+        </property>
+        <set name="empleadobbdds" table="empleadobbdd" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdUsuario" length="100" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Empleadobbdd" />
+        </set>
+    </class>
+</hibernate-mapping>

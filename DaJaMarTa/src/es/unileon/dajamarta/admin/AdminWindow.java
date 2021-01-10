@@ -1,4 +1,4 @@
-package adminWindow;
+package es.unileon.dajamarta.admin;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;

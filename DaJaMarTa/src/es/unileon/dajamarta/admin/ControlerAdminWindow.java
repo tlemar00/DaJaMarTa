@@ -1,4 +1,4 @@
-package adminWindow;
+package es.unileon.dajamarta.admin;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import DAO.EmpleadobbddDAO;
 import DAO.PropiedadesDAO;
 import DAO.UsuariosDAO;
-import adminWindow.AdminWindow;
+import es.unileon.dajamarta.admin.AdminWindow;
 import modelo.Empleadobbdd;
 import modelo.Propiedades;
 import modelo.Usuarios;

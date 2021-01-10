@@ -1,4 +1,4 @@
-package agentePropWindow;
+package es.unileon.dajamarta.agenteProp;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

@@ -1,4 +1,4 @@
-package agenteVentasWindow;
+package es.unileon.dajamarta.agenteVentas;
 
 public class ControlerAgenteVentasWindow {
 

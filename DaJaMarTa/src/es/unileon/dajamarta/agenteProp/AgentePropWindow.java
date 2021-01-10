@@ -1,4 +1,4 @@
-package agentePropWindow;
+package es.unileon.dajamarta.agenteProp;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;

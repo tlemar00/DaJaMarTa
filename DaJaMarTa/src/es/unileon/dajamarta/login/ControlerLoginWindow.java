@@ -1,4 +1,4 @@
-package loginWindow;
+package es.unileon.dajamarta.login;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,9 +7,9 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 
-import DAO.EmpleadobbddDAO;
-import DAO.PropiedadesDAO;
-import DAO.UsuariosDAO;
+import es.unileon.dajamarta.DAO.EmpleadobbddDAO;
+import es.unileon.dajamarta.DAO.PropiedadesDAO;
+import es.unileon.dajamarta.DAO.UsuariosDAO;
 import es.unileon.dajamarta.admin.AdminWindow;
 import es.unileon.dajamarta.agenteProp.AgentePropWindow;
 import modelo.Empleadobbdd;

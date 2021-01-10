@@ -7,9 +7,9 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 
-import DAO.EmpleadobbddDAO;
-import DAO.PropiedadesDAO;
-import DAO.UsuariosDAO;
+import es.unileon.dajamarta.DAO.EmpleadobbddDAO;
+import es.unileon.dajamarta.DAO.PropiedadesDAO;
+import es.unileon.dajamarta.DAO.UsuariosDAO;
 import es.unileon.dajamarta.admin.AdminWindow;
 import modelo.Empleadobbdd;
 import modelo.Propiedades;

@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dajamarta;
+package es.unileon.dajamarta;
 
 import javax.swing.JFrame;
 
-import DAO.EmpleadobbddDAO;
-import DAO.PropiedadesDAO;
-import DAO.UsuariosDAO;
-import loginWindow.LoginWindow;
+import es.unileon.dajamarta.DAO.EmpleadobbddDAO;
+import es.unileon.dajamarta.DAO.PropiedadesDAO;
+import es.unileon.dajamarta.DAO.UsuariosDAO;
+import es.unileon.dajamarta.login.LoginWindow;
 import modelo.Empleadobbdd;
 import modelo.Propiedades;
 import modelo.Usuarios;

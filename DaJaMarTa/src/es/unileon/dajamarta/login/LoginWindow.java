@@ -1,4 +1,4 @@
-package loginWindow;
+package es.unileon.dajamarta.login;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,9 +13,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import DAO.EmpleadobbddDAO;
-import DAO.PropiedadesDAO;
-import DAO.UsuariosDAO;
+import es.unileon.dajamarta.DAO.EmpleadobbddDAO;
+import es.unileon.dajamarta.DAO.PropiedadesDAO;
+import es.unileon.dajamarta.DAO.UsuariosDAO;
 import modelo.Empleadobbdd;
 import modelo.Propiedades;
 import modelo.Usuarios;

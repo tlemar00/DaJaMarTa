@@ -33,7 +33,7 @@ public class AgentePropWindow extends JFrame{
 	
 	private AgentePropWindow() {
 		JFrame frame = new JFrame("Demo application");
-		frame.setSize(540, 513);
+		frame.setSize(540, 584);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.listener = new ControlerAgentePropWindow(this);
 		
@@ -46,23 +46,24 @@ public class AgentePropWindow extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(381, 167, 89, 50);
+		btnNewButton.setBounds(393, 329, 89, 50);
 		panel.add(btnNewButton);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(44, 181, 166, 22);
+		comboBox.setBounds(44, 343, 166, 22);
 		panel.add(comboBox);
 		
 		JButton btnAadirNuevoUsusario = new JButton("A\u00F1adir nuevo ususario");
-		btnAadirNuevoUsusario.setBounds(150, 356, 214, 50);
+		btnAadirNuevoUsusario.setBounds(153, 445, 214, 50);
 		panel.add(btnAadirNuevoUsusario);
 		
 		JLabel lblNewLabel = new JLabel("Elija propiedad:");
-		lblNewLabel.setBounds(44, 156, 78, 14);
+		lblNewLabel.setBounds(44, 318, 78, 14);
 		panel.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Imagen inmobiliaria");
-		lblNewLabel_1.setBounds(205, 46, 134, 14);
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(AgentePropWindow.class.getResource("/es/unileon/imagenes/logo.PNG")));
+		lblNewLabel_1.setBounds(150, 21, 287, 277);
 		panel.add(lblNewLabel_1);
 
 		frame.setVisible(true);
@@ -94,7 +95,7 @@ public class AgentePropWindow extends JFrame{
 		JButton registerButton = new JButton("Editar");
 		registerButton.addKeyListener(listener);
 		registerButton.addActionListener(listener);
-		registerButton.setBounds(246, 167, 93, 50);
+		registerButton.setBounds(249, 329, 93, 50);
 		panel.add(registerButton);
 	}
 }

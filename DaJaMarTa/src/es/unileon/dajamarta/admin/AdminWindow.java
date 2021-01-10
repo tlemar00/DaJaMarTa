@@ -34,7 +34,7 @@ public class AdminWindow extends JFrame{
 	
 	private AdminWindow() {
 		JFrame frame = new JFrame("Demo application");
-		frame.setSize(540, 513);
+		frame.setSize(542, 658);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.listener = new ControlerAdminWindow(this);
 		
@@ -47,23 +47,28 @@ public class AdminWindow extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(381, 167, 89, 50);
+		btnNewButton.setBounds(383, 368, 89, 50);
 		panel.add(btnNewButton);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(44, 181, 166, 22);
+		comboBox.setBounds(46, 382, 166, 22);
 		panel.add(comboBox);
 		
 		JButton btnAadirNuevoUsusario = new JButton("A\u00F1adir nuevo ususario");
-		btnAadirNuevoUsusario.setBounds(150, 362, 214, 50);
+		btnAadirNuevoUsusario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnAadirNuevoUsusario.setBounds(152, 514, 214, 50);
 		panel.add(btnAadirNuevoUsusario);
 		
 		JLabel lblNewLabel = new JLabel("Elija usuario:");
-		lblNewLabel.setBounds(44, 156, 78, 14);
+		lblNewLabel.setBounds(46, 357, 78, 14);
 		panel.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Imagen inmobiliaria");
-		lblNewLabel_1.setBounds(205, 46, 134, 14);
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(AdminWindow.class.getResource("/es/unileon/imagenes/logo.PNG")));
+		lblNewLabel_1.setBounds(152, 30, 219, 311);
 		panel.add(lblNewLabel_1);
 
 		frame.setVisible(true);
@@ -95,7 +100,7 @@ public class AdminWindow extends JFrame{
 		JButton registerButton = new JButton("Editar");
 		registerButton.addKeyListener(listener);
 		registerButton.addActionListener(listener);
-		registerButton.setBounds(246, 167, 93, 50);
+		registerButton.setBounds(248, 368, 93, 50);
 		panel.add(registerButton);
 		
 		/*ActionListener oyente =new ActionListener() {

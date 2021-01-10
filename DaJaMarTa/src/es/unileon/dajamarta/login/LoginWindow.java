@@ -43,9 +43,9 @@ public class LoginWindow extends JFrame{
 		frame.getContentPane().add(panel);
 		placeComponents(panel);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\HP\\git\\DaJaMarTa\\img\\logo.PNG"));
-		lblNewLabel.setBounds(546, 92, 212, 277);
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(LoginWindow.class.getResource("/es/unileon/imagenes/logo.PNG")));
+		lblNewLabel.setBounds(635, 118, 213, 290);
 		panel.add(lblNewLabel);
 
 		frame.setVisible(true);

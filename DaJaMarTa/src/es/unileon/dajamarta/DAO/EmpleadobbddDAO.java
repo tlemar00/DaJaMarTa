@@ -14,6 +14,7 @@ import org.hibernate.Transaction;
 
 import modelo.Empleadobbdd;
 import modelo.HibernateUtil;
+import modelo.Propiedades;
 /**
  *
  * @author DAVID
@@ -39,6 +40,13 @@ public class EmpleadobbddDAO {
         tx = session.beginTransaction();
         session.createQuery("Delete Empleadobbdd p WHERE p.idEmpleado=:param1").setParameter("param1",id).executeUpdate();
         tx.commit();
+    }
+    
+    public Empleadobbdd[] obtenerEmpleados(){
+        Query query = session.createQuery("SELECT p FROM Empleadobbdd p");
+        List res = query.list();
+        Empleadobbdd[] miarray = new Empleadobbdd[res.size()];
+        return miarray = (Empleadobbdd[]) res.toArray(miarray);
     }
     
     public void actualizarEmpleado(Empleadobbdd empleado) {

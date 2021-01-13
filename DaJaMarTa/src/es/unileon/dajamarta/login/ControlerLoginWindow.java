@@ -12,19 +12,21 @@ import es.unileon.dajamarta.DAO.PropiedadesDAO;
 import es.unileon.dajamarta.DAO.UsuariosDAO;
 import es.unileon.dajamarta.admin.AdminWindow;
 import es.unileon.dajamarta.agenteProp.AgentePropWindow;
+import es.unileon.dajamarta.agenteVentas.AgenteVentasWindow;
 import modelo.Empleadobbdd;
 import modelo.Propiedades;
 import modelo.Usuarios;
 
 public class ControlerLoginWindow implements ActionListener, KeyListener{
-	private EmpleadobbddDAO empleadoDao;
+	//private EmpleadobbddDAO empleadoDao;
 	private UsuariosDAO usuarioDao;
 	private LoginWindow loginWindow;
 	private AdminWindow adminWindow;
 	private AgentePropWindow agentePropWindow;
+	private AgenteVentasWindow agenteVentWindow;
 
 	public ControlerLoginWindow(LoginWindow loginWindow)  {
-		empleadoDao = new EmpleadobbddDAO();
+		//empleadoDao = new EmpleadobbddDAO();
 		usuarioDao = new UsuariosDAO();
 		//Creamos la LoginWindow
 		this.loginWindow = loginWindow;
@@ -40,7 +42,7 @@ public class ControlerLoginWindow implements ActionListener, KeyListener{
 			System.out.println("Has pulsado login");
 			System.out.println("Contrasena="+u.getContrasenia());
 			
-			//System.out.println(loginWindow.userText.getText().toString());
+			System.out.println(loginWindow.userText.getText().toString());
 		} else if (arg0.getActionCommand().equals("Registro")) {
 			//Llamamos al dao para que meta en la bbdd (anadirUsuario clase usuario)
 			System.out.println("Has pulsado registro");
@@ -51,20 +53,19 @@ public class ControlerLoginWindow implements ActionListener, KeyListener{
 
 			adminWindow.setVisible(true);
 		
-			adminWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			//adminWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		} else if(arg0.getActionCommand().equals("Abrir ventana agente de propiedades")) {
 			agentePropWindow = AgentePropWindow.getInstance();
 
 			agentePropWindow.setVisible(true);
 		
-			agentePropWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			//agentePropWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		} else if(arg0.getActionCommand().equals("Abrir ventana agente de ventas")) {
-			//Cambiar por agente de propiedades
-			/*agentePropWindow = AgentePropiedadesWindow.getInstance();
+			agenteVentWindow = AgenteVentasWindow.getInstance();
 
-			agentePropWindow.setVisible(true);
+			agenteVentWindow.setVisible(true);
 		
-			agentePropWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
+			//agenteVentWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		}
 	}
 

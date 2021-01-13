@@ -19,7 +19,7 @@ public class ControlerAgentePropWindow implements ActionListener, KeyListener{
 	private UsuariosDAO usuarioDao;
 	private AgentePropWindow agentePropWindow;
 
-	public ControlerAgentePropWindow(AgentePropWindow loginWindow)  {
+	public ControlerAgentePropWindow(AgentePropWindow agentePropWindow)  {
 		empleadoDao = new EmpleadobbddDAO();
 		usuarioDao = new UsuariosDAO();
 		//Creamos la LoginWindow

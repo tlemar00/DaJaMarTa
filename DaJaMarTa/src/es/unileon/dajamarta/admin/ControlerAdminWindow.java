@@ -19,12 +19,21 @@ public class ControlerAdminWindow implements ActionListener, KeyListener{
 	private EmpleadobbddDAO empleadoDao;
 	private UsuariosDAO usuarioDao;
 	private AdminWindow adminWindow;
+	private Empleadobbdd[] lista; //Lista con todos los empleados
 
-	public ControlerAdminWindow(AdminWindow loginWindow)  {
+	public ControlerAdminWindow(AdminWindow adminWindow)  {
 		empleadoDao = new EmpleadobbddDAO();
 		usuarioDao = new UsuariosDAO();
-		//Creamos la LoginWindow
 		this.adminWindow = adminWindow;
+		rellenaDatosComponentes();
+	}
+	
+	public void rellenaDatosComponentes() {
+		lista = empleadoDao.obtenerEmpleados();//Rellenamos lista con los empleados
+		//Rellenamos la Combobox
+		for(int i=0; i< lista.length; i++) {//Rellenamos la combobox
+			adminWindow.comboBox.addItem(lista[i].getEmail());
+		}
 	}
 	
 	//Recogemos los eventos que ocurren en la ventana
@@ -32,22 +41,22 @@ public class ControlerAdminWindow implements ActionListener, KeyListener{
 		//Obtenemos el objeto usuario según el nombre introducido
 		//Usuarios u = usuarioDao.obtenerUsuario(adminWindow.userText.getText().toString());
 		//No estamos recogiendo en ningun sitio lo de login y tal
-		if (arg0.getActionCommand().equals("Login")) {
-			// LLamamos al dao y nos devuelve la profesion del empleado que quiere acceder
-			System.out.println("Has pulsado login");
-			//System.out.println("Contrasena="+u.getContrasenia());
+		if(arg0.getActionCommand().equals("Buscar")) {
+			adminWindow.campoNombre.setText(lista[adminWindow.comboBox.getSelectedIndex()].getNombre());
+			adminWindow.campoApellido.setText(lista[adminWindow.comboBox.getSelectedIndex()].getApellido1());
+			adminWindow.campoApellido2.setText(lista[adminWindow.comboBox.getSelectedIndex()].getApellido2());
+			adminWindow.campoEmail.setText(lista[adminWindow.comboBox.getSelectedIndex()].getEmail());
+			adminWindow.campoNif.setText(lista[adminWindow.comboBox.getSelectedIndex()].getNifnie());
+			//adminWindow.campoPuesto.setText(lista[adminWindow.comboBox.getSelectedIndex()].getPuesto());
+		}else if(arg0.getActionCommand().equals("Editar")) {
+			System.out.println("Boton editar");
+			Empleadobbdd empleadoEditado = lista[adminWindow.comboBox.getSelectedIndex()];
 			
-			//System.out.println(loginWindow.userText.getText().toString());
-		} else if (arg0.getActionCommand().equals("Registro")) {
-			//Llamamos al dao para que meta en la bbdd (anadirUsuario clase usuario)
-			System.out.println("Has pulsado registro");
-			//usuarioDao.crearUsuario(5, "hola", "hola");
-			/*adminWindow = AdminWindow.getInstance();
-
-			adminWindow.setVisible(true);
-		
-			adminWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
+			//Creamos objeto con los nuevos datso
+			empleadoEditado.setNombre(adminWindow.campoNombre.getText());
 			
+			//Lo enviamos a la bbdd
+			empleadoDao.actualizarEmpleado(empleadoEditado);
 		}
 	}
 

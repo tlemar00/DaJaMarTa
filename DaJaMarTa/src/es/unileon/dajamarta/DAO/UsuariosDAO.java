@@ -3,20 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package es.unileon.dajamarta.DAO;
+package DAO;
 
 import java.util.List;
 import static javassist.CtMethod.ConstParameter.string;
 import javax.imageio.spi.ServiceRegistry;
-
+import modelo.HibernateUtil;
 import org.hibernate.Query;
     import org.hibernate.Session;
     import org.hibernate.SessionFactory;
-import org.hibernate.SessionFactory;
+    import modelo.Usuarios;
+ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
-import modelo.HibernateUtil;
-import modelo.Usuarios;
 /**
  *
  * @author DAVID

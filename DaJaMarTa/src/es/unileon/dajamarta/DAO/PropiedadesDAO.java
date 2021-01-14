@@ -3,20 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package es.unileon.dajamarta.DAO;
+package DAO;
 
 import java.util.List;
 import static javassist.CtMethod.ConstParameter.string;
 import javax.imageio.spi.ServiceRegistry;
-
+import modelo.HibernateUtil;
 import org.hibernate.Query;
     import org.hibernate.Session;
     import org.hibernate.SessionFactory;
-import org.hibernate.SessionFactory;
+    import modelo.Propiedades;
+ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
-import modelo.HibernateUtil;
-import modelo.Propiedades;
 /**
  *
  * @author DAVID
@@ -31,8 +29,8 @@ public class PropiedadesDAO {
         session = sf.openSession();
     }
     
-    public Propiedades[] obtenerPropiedadesDeTipo(int id){
-        Query query = session.createQuery("SELECT p FROM Propiedades p WHERE p.tipoPropiedad=:param1");
+    public Propiedades[] obtenerPropiedadesNoVendidas(int id){
+        Query query = session.createQuery("SELECT p FROM Propiedades p WHERE p.vendido=:param1");
         query.setParameter("param1",id);
         List res = query.list();
         Propiedades[] miarray = new Propiedades[res.size()];
@@ -50,7 +48,7 @@ public class PropiedadesDAO {
         tx = session.beginTransaction();
         session.createQuery("Delete Propiedades p WHERE p.idPropiedad=:param1").setParameter("param1",id).executeUpdate();
         tx.commit();
-    }
+    } 
     
     public void actualizarPropiedad(Propiedades propiedad) {
     // Hago la consulta HQL

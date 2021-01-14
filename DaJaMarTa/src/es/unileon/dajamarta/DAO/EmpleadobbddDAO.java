@@ -3,18 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package es.unileon.dajamarta.DAO;
+package DAO;
 
 import java.util.List;
-
+import modelo.Empleadobbdd;
+import modelo.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
-import modelo.Empleadobbdd;
-import modelo.HibernateUtil;
-import modelo.Propiedades;
 /**
  *
  * @author DAVID
@@ -40,13 +37,6 @@ public class EmpleadobbddDAO {
         tx = session.beginTransaction();
         session.createQuery("Delete Empleadobbdd p WHERE p.idEmpleado=:param1").setParameter("param1",id).executeUpdate();
         tx.commit();
-    }
-    
-    public Empleadobbdd[] obtenerEmpleados(){
-        Query query = session.createQuery("SELECT p FROM Empleadobbdd p");
-        List res = query.list();
-        Empleadobbdd[] miarray = new Empleadobbdd[res.size()];
-        return miarray = (Empleadobbdd[]) res.toArray(miarray);
     }
     
     public void actualizarEmpleado(Empleadobbdd empleado) {

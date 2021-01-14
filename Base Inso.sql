@@ -42,8 +42,7 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   PRIMARY KEY (`IdCliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Volcando datos para la tabla insofinal1.clientes: ~0 rows (aproximadamente)
-DELETE FROM `clientes`;
+
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
 INSERT INTO `clientes` (`IdCliente`, `Nombre`, `Apellido1`, `Apellido2`, `NIFNIE`, `Telefono`) VALUES
 	(0, 'Sergio', 'Martinez', 'Alvarez', '75124855L', '666555777'),
@@ -68,8 +67,7 @@ CREATE TABLE IF NOT EXISTS `empleadobbdd` (
   CONSTRAINT `empleadobbdd_ibfk_2` FOREIGN KEY (`IdCategoria`) REFERENCES `categorias` (`IdCategoria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=armscii8 COLLATE=armscii8_bin;
 
--- Volcando datos para la tabla insofinal1.empleadobbdd: ~1 rows (aproximadamente)
-DELETE FROM `empleadobbdd`;
+
 /*!40000 ALTER TABLE `empleadobbdd` DISABLE KEYS */;
 INSERT INTO `empleadobbdd` (`idEmpleado`, `Nombre`, `Apellido1`, `Apellido2`, `NIFNIE`, `Email`, `IdUsuario`, `IdCategoria`) VALUES
 	(0, 'asf', 'asdfb', 'dsbn', 'sadfb', 'gdsf', 'admin', 0);
@@ -102,8 +100,6 @@ CREATE TABLE IF NOT EXISTS `propiedades` (
   CONSTRAINT `empleadobbdd_ibfk_4` FOREIGN KEY (`IdCliente`) REFERENCES `clientes` (`IdCliente`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=armscii8 COLLATE=armscii8_bin;
 
--- Volcando datos para la tabla insofinal1.propiedades: ~0 rows (aproximadamente)
-DELETE FROM `propiedades`;
 /*!40000 ALTER TABLE `propiedades` DISABLE KEYS */;
 /*!40000 ALTER TABLE `propiedades` ENABLE KEYS */;
 
@@ -114,8 +110,6 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   PRIMARY KEY (`IdUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=armscii8 COLLATE=armscii8_bin;
 
--- Volcando datos para la tabla insofinal1.usuarios: ~0 rows (aproximadamente)
-DELETE FROM `usuarios`;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
 INSERT INTO `usuarios` (`IdUsuario`, `Contrasenia`) VALUES
 	('admin', 'administrador1234567890*');

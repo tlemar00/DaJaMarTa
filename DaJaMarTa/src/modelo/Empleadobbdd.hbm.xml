@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 09-ene-2021 12:44:29 by Hibernate Tools 4.3.1 -->
+<!-- Generated 14-ene-2021 21:40:34 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelo.Empleadobbdd" table="empleadobbdd" catalog="insofinal1" optimistic-lock="version">
         <id name="idEmpleado" type="int">
@@ -29,8 +29,11 @@
         <property name="email" type="string">
             <column name="Email" length="75" not-null="true" />
         </property>
-        <property name="puesto" type="string">
-            <column name="Puesto" length="75" not-null="true" />
-        </property>
+        <set name="propiedadeses" table="propiedades" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdTrabajador" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Propiedades" />
+        </set>
     </class>
 </hibernate-mapping>

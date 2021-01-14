@@ -25,19 +25,19 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    	EmpleadobbddDAO sesion = new EmpleadobbddDAO();
-    	Empleadobbdd[] lista;
-    	LoginWindow window = LoginWindow.getInstance();
+    	//EmpleadobbddDAO sesion = new EmpleadobbddDAO();
+    	//Empleadobbdd[] lista;
+    	LoginWindow.getInstance();
 
-    	lista=sesion.obtenerEmpleados();
+    	//lista=sesion.obtenerEmpleados();
     	
-    	for (int i=0; i < lista.length; i++) {
+    	/*for (int i=0; i < lista.length; i++) {
     		System.out.println(lista[i].getEmail());
-    	}
+    	}*/
     	
-		window.setVisible(true);
+		//window.setVisible(true);
 	
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // TODO code application logic here
         /*UsuariosDAO user = new UsuariosDAO();
         EmpleadobbddDAO emp = new EmpleadobbddDAO();

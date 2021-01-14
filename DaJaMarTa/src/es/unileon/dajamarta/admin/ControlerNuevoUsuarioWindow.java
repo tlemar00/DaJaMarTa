@@ -11,23 +11,20 @@ import es.unileon.dajamarta.DAO.EmpleadobbddDAO;
 import es.unileon.dajamarta.DAO.PropiedadesDAO;
 import es.unileon.dajamarta.DAO.UsuariosDAO;
 import es.unileon.dajamarta.admin.AdminWindow;
-import es.unileon.dajamarta.agenteProp.AgentePropWindow;
-import es.unileon.dajamarta.agenteVentas.AgenteVentasWindow;
 import modelo.Empleadobbdd;
 import modelo.Propiedades;
 import modelo.Usuarios;
 
-public class ControlerAdminWindow implements ActionListener, KeyListener{
+public class ControlerNuevoUsuarioWindow implements ActionListener, KeyListener{
 	private EmpleadobbddDAO empleadoDao;
 	private UsuariosDAO usuarioDao;
-	private AdminWindow adminWindow;
-	private Empleadobbdd[] lista; //Lista con todos los empleados
 	private NuevoUsuarioWindow nuevoUsuarioWindow;
+	private Empleadobbdd[] lista; //Lista con todos los empleados
 
-	public ControlerAdminWindow(AdminWindow adminWindow)  {
+	public ControlerNuevoUsuarioWindow(NuevoUsuarioWindow nuevoUsuarioWindow)  {
 		empleadoDao = new EmpleadobbddDAO();
 		usuarioDao = new UsuariosDAO();
-		this.adminWindow = adminWindow;
+		this.nuevoUsuarioWindow = nuevoUsuarioWindow;
 		rellenaDatosComponentes();
 	}
 	
@@ -35,7 +32,7 @@ public class ControlerAdminWindow implements ActionListener, KeyListener{
 		lista = empleadoDao.obtenerEmpleados();//Rellenamos lista con los empleados
 		//Rellenamos la Combobox
 		for(int i=0; i< lista.length; i++) {//Rellenamos la combobox
-			adminWindow.comboBox.addItem(lista[i].getEmail());
+			//adminWindow.comboBox.addItem(lista[i].getEmail());
 		}
 	}
 	
@@ -45,25 +42,22 @@ public class ControlerAdminWindow implements ActionListener, KeyListener{
 		//Usuarios u = usuarioDao.obtenerUsuario(adminWindow.userText.getText().toString());
 		//No estamos recogiendo en ningun sitio lo de login y tal
 		if(arg0.getActionCommand().equals("Buscar")) {
-			adminWindow.campoNombre.setText(lista[adminWindow.comboBox.getSelectedIndex()].getNombre());
+			/*adminWindow.campoNombre.setText(lista[adminWindow.comboBox.getSelectedIndex()].getNombre());
 			adminWindow.campoApellido.setText(lista[adminWindow.comboBox.getSelectedIndex()].getApellido1());
 			adminWindow.campoApellido2.setText(lista[adminWindow.comboBox.getSelectedIndex()].getApellido2());
 			adminWindow.campoEmail.setText(lista[adminWindow.comboBox.getSelectedIndex()].getEmail());
-			adminWindow.campoNif.setText(lista[adminWindow.comboBox.getSelectedIndex()].getNifnie());
+			adminWindow.campoNif.setText(lista[adminWindow.comboBox.getSelectedIndex()].getNifnie());*/
 			//adminWindow.campoPuesto.setText(lista[adminWindow.comboBox.getSelectedIndex()].getPuesto());
 		}else if(arg0.getActionCommand().equals("Editar")) {
 			System.out.println("Boton editar");
-			Empleadobbdd empleadoEditado = lista[adminWindow.comboBox.getSelectedIndex()];
+			//Empleadobbdd empleadoEditado = lista[adminWindow.comboBox.getSelectedIndex()];
 			
 			//Creamos objeto con los nuevos datso
-			empleadoEditado.setNombre(adminWindow.campoNombre.getText());
+			//empleadoEditado.setNombre(adminWindow.campoNombre.getText());
 			
 			//Lo enviamos a la bbdd
-			empleadoDao.actualizarEmpleado(empleadoEditado);
-		}else if(arg0.getActionCommand().equals("Crear nuevo empleado")) {
-			NuevoUsuarioWindow.getInstance();
+			//empleadoDao.actualizarEmpleado(empleadoEditado);
 		}
-		
 	}
 
 	@Override

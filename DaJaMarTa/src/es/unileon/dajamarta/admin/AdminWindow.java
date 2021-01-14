@@ -32,10 +32,6 @@ public class AdminWindow extends JFrame{
 	private static AdminWindow instance; // Singleton
 	private ControlerAdminWindow listener;
 	private Empleadobbdd[] lista; //Lista con todos los empleados
-	/**
-	 * @wbp.nonvisual location=-38,89
-	 */
-	private final JTextArea textArea = new JTextArea();
 	protected JTextField campoNombre;
 	protected JTextField campoApellido;
 	protected JTextField campoApellido2;
@@ -48,13 +44,15 @@ public class AdminWindow extends JFrame{
 		EmpleadobbddDAO sesion = new EmpleadobbddDAO();
 		lista = sesion.obtenerEmpleados();//Rellenamos lista con los empleados
 		
-		JFrame frame = new JFrame("Demo application");
-		frame.setSize(1060, 721);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JFrame frmConsultarYEditar = new JFrame("Demo application");
+		frmConsultarYEditar.setTitle("Consultar y editar empleados");
+		frmConsultarYEditar.setSize(1060, 579);
+		frmConsultarYEditar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.listener = new ControlerAdminWindow(this);
 		
 		JPanel panel = new JPanel();
-		frame.getContentPane().add(panel);
+		panel.setBackground(Color.WHITE);
+		frmConsultarYEditar.getContentPane().add(panel);
 		placeComponents(panel);
 		
 		JButton btnNewButton = new JButton("Eliminar");
@@ -64,16 +62,6 @@ public class AdminWindow extends JFrame{
 		});
 		btnNewButton.setBounds(924, 439, 89, 50);
 		panel.add(btnNewButton);
-		
-		
-		
-		JButton btnAadirNuevoUsusario = new JButton("A\u00F1adir nuevo ususario");
-		btnAadirNuevoUsusario.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnAadirNuevoUsusario.setBounds(392, 588, 214, 50);
-		panel.add(btnAadirNuevoUsusario);
 		
 		JLabel lblNewLabel = new JLabel("Elija usuario:");
 		lblNewLabel.setBounds(249, 371, 78, 14);
@@ -142,8 +130,25 @@ public class AdminWindow extends JFrame{
 		JLabel lblNewLabel_7 = new JLabel("Puesto");
 		lblNewLabel_7.setBounds(676, 429, 46, 14);
 		panel.add(lblNewLabel_7);
+		
+		JMenuBar menuBar = new JMenuBar();
+		frmConsultarYEditar.setJMenuBar(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("Opciones");
+		menuBar.add(mnNewMenu);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Crear nuevo empleado");
+		mntmNewMenuItem.addActionListener(listener);
+		mntmNewMenuItem.addKeyListener(listener);
+		mnNewMenu.add(mntmNewMenuItem);
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Cerrar sesi\u00F3n");
+		mnNewMenu.add(mntmNewMenuItem_1);
+		
+		JMenu mnNewMenu_1 = new JMenu("Ayuda");
+		menuBar.add(mnNewMenu_1);
 
-		frame.setVisible(true);
+		frmConsultarYEditar.setVisible(true);
 		
 	}
 	
@@ -178,12 +183,7 @@ public class AdminWindow extends JFrame{
 		
 		
 		comboBox.setBounds(337, 367, 298, 22);
-		comboBox.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.out.println(comboBox.getSelectedItem().toString());
-			}
-		});
+		comboBox.addActionListener(listener);
 		panel.add(comboBox);
 		/*ActionListener oyente =new ActionListener() {
 			

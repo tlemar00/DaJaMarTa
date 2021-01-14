@@ -41,31 +41,15 @@ public class ControlerLoginWindow implements ActionListener, KeyListener{
 			// LLamamos al dao y nos devuelve la profesion del empleado que quiere acceder
 			System.out.println("Has pulsado login");
 			System.out.println("Contrasena="+u.getContrasenia());
-			
 			System.out.println(loginWindow.userText.getText().toString());
 		} else if (arg0.getActionCommand().equals("Registro")) {
-			//Llamamos al dao para que meta en la bbdd (anadirUsuario clase usuario)
-			System.out.println("Has pulsado registro");
-			//usuarioDao.crearUsuario(5, "hola", "hola");
 			
 		} else if(arg0.getActionCommand().equals("Abrir ventana administrador")) {
-			adminWindow = AdminWindow.getInstance();
-
-			adminWindow.setVisible(true);
-		
-			//adminWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			AdminWindow.getInstance();
 		} else if(arg0.getActionCommand().equals("Abrir ventana agente de propiedades")) {
-			agentePropWindow = AgentePropWindow.getInstance();
-
-			agentePropWindow.setVisible(true);
-		
-			//agentePropWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			AgentePropWindow.getInstance();
 		} else if(arg0.getActionCommand().equals("Abrir ventana agente de ventas")) {
-			agenteVentWindow = AgenteVentasWindow.getInstance();
-
-			agenteVentWindow.setVisible(true);
-		
-			//agenteVentWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			AgenteVentasWindow.getInstance();
 		}
 	}
 

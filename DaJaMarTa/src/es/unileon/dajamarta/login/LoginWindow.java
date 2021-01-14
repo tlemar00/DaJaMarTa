@@ -34,28 +34,34 @@ public class LoginWindow extends JFrame{
 	protected JTextField userText = new JTextField(20);
 	
 	private LoginWindow() {
-		JFrame frame = new JFrame("Demo application");
-		frame.setSize(1022, 594);
+		JFrame frame = new JFrame();
+		frame.setSize(608, 594);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.listener = new ControlerLoginWindow(this);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.white);
 		frame.getContentPane().add(panel);
 		placeComponents(panel);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(LoginWindow.class.getResource("/es/unileon/imagenes/logo.PNG")));
-		lblNewLabel.setBounds(635, 118, 213, 290);
+		lblNewLabel.setIcon(new ImageIcon(LoginWindow.class.getResource("/es/unileon/imagenes/inmobiliaria.png")));
+		lblNewLabel.setBounds(191, 32, 231, 140);
 		panel.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(LoginWindow.class.getResource("/es/unileon/imagenes/edificio.png")));
+		lblNewLabel_1.setBounds(2, 357, 231, 233);
+		panel.add(lblNewLabel_1);
 
 		frame.setVisible(true);
 		
 	}
 	
-	public void paint() {
+	/*public void paint() {
 		imagen=new ImageIcon(getClass().getResource(""));
 		
-	}
+	}*/
 	
 	public synchronized static LoginWindow getInstance(){
 
@@ -75,50 +81,46 @@ public class LoginWindow extends JFrame{
 		panel.setLayout(null);
 
 		JLabel userLabel = new JLabel("Usuario");
-		userLabel.setBounds(70, 62, 80, 25);
+		userLabel.setBounds(137, 207, 80, 25);
 		panel.add(userLabel);
 		
 		//userText = new HintTextField("USUARIO",55);
 		//JTextField userText = new JTextField(20);
-		userText.setBounds(277, 62, 160, 25);
+		userText.setBounds(265, 207, 220, 25);
 		panel.add(userText);
 
 		JLabel passwordLabel = new JLabel("Contrase\u00F1a");
-		passwordLabel.setBounds(70, 178, 80, 25);
+		passwordLabel.setBounds(137, 278, 80, 25);
 		panel.add(passwordLabel);
 
 		JPasswordField passwordText = new JPasswordField(20);
-		passwordText.setBounds(277, 178, 160, 25);
+		passwordText.setBounds(265, 278, 220, 25);
 		panel.add(passwordText);
 
 		JButton loginButton = new JButton("Login");
+		loginButton.setForeground(Color.WHITE);
+		loginButton.setBackground(Color.RED);
 		loginButton.addKeyListener(listener);
 		loginButton.addActionListener(listener);
-		loginButton.setBounds(90, 268, 86, 50);
+		loginButton.setBounds(253, 340, 86, 50);
 		panel.add(loginButton);
-		
-		JButton registerButton = new JButton("Registro");
-		registerButton.addKeyListener(listener);
-		registerButton.addActionListener(listener);
-		registerButton.setBounds(277, 268, 93, 50);
-		panel.add(registerButton);
 		
 		JButton abrirAdmin = new JButton("Abrir ventana administrador");
 		abrirAdmin.addKeyListener(listener);
 		abrirAdmin.addActionListener(listener);
-		abrirAdmin.setBounds(90, 348, 280, 21);
+		abrirAdmin.setBounds(369, 433, 202, 21);
 		panel.add(abrirAdmin);
 		
 		JButton abrirVentas = new JButton("Abrir ventana agente de propiedades");
 		abrirVentas.addKeyListener(listener);
 		abrirVentas.addActionListener(listener);
-		abrirVentas.setBounds(90, 380, 280, 23);
+		abrirVentas.setBounds(369, 465, 202, 23);
 		panel.add(abrirVentas);
 		
 		JButton abrirProp = new JButton("Abrir ventana agente de ventas");
 		abrirProp.addKeyListener(listener);
 		abrirProp.addActionListener(listener);
-		abrirProp.setBounds(90, 414, 280, 23);
+		abrirProp.setBounds(369, 500, 202, 23);
 		panel.add(abrirProp);
 		/*ActionListener oyente =new ActionListener() {
 			

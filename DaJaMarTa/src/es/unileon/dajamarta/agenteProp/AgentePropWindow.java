@@ -1,4 +1,5 @@
 package es.unileon.dajamarta.agenteProp;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -30,15 +31,28 @@ public class AgentePropWindow extends JFrame{
 	String nombre;
 	private static AgentePropWindow instance; // Singleton
 	private ControlerAgentePropWindow listener;
+	private Empleadobbdd[] lista; //Lista con todos los empleados
+	protected JTextField campoNombre;
+	protected JTextField campoApellido;
+	protected JTextField campoApellido2;
+	protected JTextField campoNif;
+	protected JTextField campoPuesto;
+	protected JTextField campoEmail;
+	protected JComboBox comboBox = new JComboBox();
 	
 	private AgentePropWindow() {
-		JFrame frame = new JFrame("Demo application");
-		frame.setSize(540, 584);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		EmpleadobbddDAO sesion = new EmpleadobbddDAO();
+		lista = sesion.obtenerEmpleados();//Rellenamos lista con los empleados
+		
+		JFrame frmConsultarYEditar = new JFrame("Demo application");
+		frmConsultarYEditar.setTitle("Consultar y editar empleados");
+		frmConsultarYEditar.setSize(1060, 579);
+		frmConsultarYEditar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.listener = new ControlerAgentePropWindow(this);
 		
 		JPanel panel = new JPanel();
-		frame.getContentPane().add(panel);
+		panel.setBackground(Color.WHITE);
+		frmConsultarYEditar.getContentPane().add(panel);
 		placeComponents(panel);
 		
 		JButton btnNewButton = new JButton("Eliminar");
@@ -46,27 +60,95 @@ public class AgentePropWindow extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(393, 329, 89, 50);
+		btnNewButton.setBounds(924, 439, 89, 50);
 		panel.add(btnNewButton);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(44, 343, 166, 22);
-		panel.add(comboBox);
-		
-		JButton btnAadirNuevoUsusario = new JButton("A\u00F1adir nuevo ususario");
-		btnAadirNuevoUsusario.setBounds(153, 445, 214, 50);
-		panel.add(btnAadirNuevoUsusario);
-		
 		JLabel lblNewLabel = new JLabel("Elija propiedad:");
-		lblNewLabel.setBounds(44, 318, 78, 14);
+		lblNewLabel.setBounds(249, 371, 78, 14);
 		panel.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(AgentePropWindow.class.getResource("/es/unileon/imagenes/logo.PNG")));
-		lblNewLabel_1.setBounds(150, 21, 287, 277);
+		lblNewLabel_1.setBounds(407, 11, 219, 311);
 		panel.add(lblNewLabel_1);
+		
+		campoApellido = new JTextField();
+		campoApellido.setBounds(163, 454, 107, 20);
+		panel.add(campoApellido);
+		campoApellido.setColumns(10);
+		
+		campoNombre = new JTextField();
+		campoNombre.setBounds(46, 454, 107, 20);
+		panel.add(campoNombre);
+		campoNombre.setColumns(10);
+		
+		campoApellido2 = new JTextField();
+		campoApellido2.setBounds(284, 454, 107, 20);
+		panel.add(campoApellido2);
+		campoApellido2.setColumns(10);
+		
+		campoEmail = new JTextField();
+		campoEmail.setBounds(503, 454, 163, 20);
+		panel.add(campoEmail);
+		campoEmail.setColumns(10);
+		campoNif = new JTextField();
+		campoNif.setBounds(407, 454, 86, 20);
+		panel.add(campoNif);
+		campoNif.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("Nombre");
+		lblNewLabel_2.setBounds(46, 429, 46, 14);
+		panel.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Primer apellido");
+		lblNewLabel_3.setBounds(168, 429, 86, 14);
+		panel.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("Segundo apellido");
+		lblNewLabel_4.setBounds(285, 429, 85, 14);
+		panel.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_5 = new JLabel("NIF/NIE");
+		lblNewLabel_5.setBounds(408, 429, 46, 14);
+		panel.add(lblNewLabel_5);
+		
+		JButton btnEditar = new JButton("Editar");
+		btnEditar.addKeyListener(listener);
+		btnEditar.addActionListener(listener);
+		btnEditar.setBounds(801, 439, 89, 50);
+		panel.add(btnEditar);
+		
+		JLabel lblNewLabel_6 = new JLabel("Email");
+		lblNewLabel_6.setBounds(503, 429, 46, 14);
+		panel.add(lblNewLabel_6);
+		
+		campoPuesto = new JTextField();
+		campoPuesto.setBounds(676, 454, 93, 20);
+		panel.add(campoPuesto);
+		campoPuesto.setColumns(10);
+		
+		JLabel lblNewLabel_7 = new JLabel("Puesto");
+		lblNewLabel_7.setBounds(676, 429, 46, 14);
+		panel.add(lblNewLabel_7);
+		
+		JMenuBar menuBar = new JMenuBar();
+		frmConsultarYEditar.setJMenuBar(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("Opciones");
+		menuBar.add(mnNewMenu);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("A\u00F1adir propiedad");
+		mntmNewMenuItem.addActionListener(listener);
+		mntmNewMenuItem.addKeyListener(listener);
+		mnNewMenu.add(mntmNewMenuItem);
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Cerrar sesi\u00F3n");
+		mnNewMenu.add(mntmNewMenuItem_1);
+		
+		JMenu mnNewMenu_1 = new JMenu("Ayuda");
+		menuBar.add(mnNewMenu_1);
 
-		frame.setVisible(true);
+		frmConsultarYEditar.setVisible(true);
 		
 	}
 	
@@ -92,10 +174,43 @@ public class AgentePropWindow extends JFrame{
 
 		panel.setLayout(null);
 		
-		JButton registerButton = new JButton("Editar");
+		JButton registerButton = new JButton("Buscar");
 		registerButton.addKeyListener(listener);
 		registerButton.addActionListener(listener);
-		registerButton.setBounds(249, 329, 93, 50);
+		registerButton.setBounds(676, 353, 93, 50);
 		panel.add(registerButton);
+		
+		
+		
+		comboBox.setBounds(337, 367, 298, 22);
+		comboBox.addActionListener(listener);
+		panel.add(comboBox);
+		/*ActionListener oyente =new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent ae) {
+				System.out.println(userText.getText());
+				//Ahora hay que pasarlo a la bbdd
+				SessionFactory factory = new Configuration()
+				.configure("hibernate.cfg.xml")
+				.addAnnotatedClass(AgentePropiedades.class)
+				.buildSessionFactory();
+
+							
+				//Crear sesión
+				Session session = factory.getCurrentSession();
+				
+				try {
+				System.out.println("Creando objeto");
+				AgentePropiedades tempAg = new AgentePropiedades("Juan", "MArtz", "juanm@g.com");
+				session.beginTransaction();
+				session.save(tempAg);
+				session.getTransaction().commit();
+				} finally {
+				factory.close();
+				}
+			}
+		};*/
+		//loginButton.addActionListener(oyente);
 	}
 }

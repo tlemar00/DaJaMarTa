@@ -47,9 +47,7 @@ public class ControlerAgenteVentasWindow implements ActionListener, KeyListener{
 		//No estamos recogiendo en ningun sitio lo de login y tal
 		if(arg0.getActionCommand().equals("Consultar propiedad")) {
 			System.out.println("HAS PULS");
-			propiedadWindow = PropiedadWindow.getInstance();
-
-			propiedadWindow.setVisible(true);
+			PropiedadWindow.getInstance();
 		}else if(arg0.getActionCommand().equals("Editar")) {
 			
 		}

@@ -26,6 +26,13 @@ public class EmpleadobbddDAO {
         session = sf.openSession();
     }
     
+    public Empleadobbdd[] obtenerEmpleados(){
+        Query query = session.createQuery("SELECT e FROM Empleadobbdd e ");
+        List res = query.list();
+        Empleadobbdd[] miarray = new Empleadobbdd[res.size()];
+        return miarray = (Empleadobbdd[]) res.toArray(miarray);
+    }
+    
     public Empleadobbdd obtenerEmpleadoPorUser(String user){
         Query query = session.createQuery("SELECT t FROM Empleadobbdd t WHERE t.usuarios.idUsuario=:param1");
         query.setParameter("param1",user);

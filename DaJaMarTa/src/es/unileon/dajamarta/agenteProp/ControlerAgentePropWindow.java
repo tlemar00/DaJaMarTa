@@ -36,12 +36,12 @@ public class ControlerAgentePropWindow implements ActionListener, KeyListener{
 		lista = propiedadesDao.obtenerPropiedades();//Rellenamos lista con las propiedades
 		//Rellenamos la Combobox
 		for(int i=0; i< lista.length; i++) {//Rellenamos la combobox
-			agentePropWindow.comboBox.addItem(lista[i].getIdPropiedad()+"."+lista[i].getTipoPropiedad()+" en calle "+lista[i].getDireccion()+" número "+lista[i].getNumero());
+			agentePropWindow.comboBox.addItem(lista[i].getIdPropiedad()+"."+lista[i].getTipoPropiedad()+" en calle "+lista[i].getDireccion()+" nÃºmero "+lista[i].getNumero());
 		}
 		
-		String provincias[] = {"Alava","Albacete","Alicante","Almería","Asturias","Avila","Badajoz","Barcelona","Burgos","Cáceres",
-	               "Cádiz","Cantabria","Castellón","Ciudad Real","Córdoba","La Coruña","Cuenca","Gerona","Granada","Guadalajara",
-	               "Guipúzcoa","Huelva","Huesca","Islas Baleares","Jaén","León","Lérida","Lugo","Madrid","Málaga","Murcia","Navarra",
+		String provincias[] = {"Alava","Albacete","Alicante","AlmerÃ­a","Asturias","Avila","Badajoz","Barcelona","Burgos","CÃ¡ceres",
+	               "CÃ¡diz","Cantabria","CastellÃ³n","Ciudad Real","CÃ³rdoba","La CoruÃ±a","Cuenca","Gerona","Granada","Guadalajara",
+	               "GuipÃºzcoa","Huelva","Huesca","Islas Baleares","JaÃ©n","LeÃ³n","LÃ©rida","Lugo","Madrid","MÃ¡laga","Murcia","Navarra",
 	               "Orense","Palencia","Las Palmas","Pontevedra","La Rioja","Salamanca","Segovia","Sevilla","Soria","Tarragona",
 	               "Santa Cruz de Tenerife","Teruel","Toledo","Valencia","Valladolid","Vizcaya","Zamora","Zaragoza"};
 		for(int i=0; i < provincias.length; i++) {
@@ -51,7 +51,7 @@ public class ControlerAgentePropWindow implements ActionListener, KeyListener{
 	
 	//Recogemos los eventos que ocurren en la ventana
 	public void actionPerformed(ActionEvent arg0) {
-		//Obtenemos el objeto usuario según el nombre introducido
+		//Obtenemos el objeto usuario segÃºn el nombre introducido
 		//Usuarios u = usuarioDao.obtenerUsuario(adminWindow.userText.getText().toString());
 		//No estamos recogiendo en ningun sitio lo de login y tal
 		if(arg0.getActionCommand().equals("Buscar")) {
@@ -87,13 +87,19 @@ public class ControlerAgentePropWindow implements ActionListener, KeyListener{
 			propiedadesDao.actualizarPropiedad(propiedadEditada);//Mete base de datos
 
 			
-		}else if(arg0.getActionCommand().equals("Añadir propiedad")) {
+		}else if(arg0.getActionCommand().equals("AÃ±adir propiedad")) {
 			NuevaPropWindow.getInstance();
 		}else if(arg0.getActionCommand().equals("Eliminar")) {
 			Propiedades propiedadAEliminar = lista[agentePropWindow.comboBox.getSelectedIndex()];
 			propiedadesDao.borrar(propiedadAEliminar.getIdPropiedad());
 		}else if(arg0.getActionCommand().equals("Ayuda")) {
-			JOptionPane.showMessageDialog(null, "En esta página podrás consultar los usuarios", null, JOptionPane.INFORMATION_MESSAGE);
+			else if(arg0.getActionCommand().equals("Ayuda")) {
+			JOptionPane.showMessageDialog(null, "En esta pÃ¡gina podrÃ¡s: \n "
+					+ "\n Consultar Propiedades: \n 1) Elija una propiedad \n 2) Pulsa el botÃ³n de 'Buscar' \n 3) Se rellenaran los campos con los datos de la propiedad seleccionada \n"
+					+ "\n Modificar Propiedades: \n 1) Elija una propiedad \n 2) Pulsa el botÃ³n de 'Buscar' \n 3) Modifica el campo. \n 4) Pulsa en el botÃ³n de 'Modificar'\n "
+					+ "\n Eliminar Propiedad: \n 1) Elija una propiedad \n 2) Pulsa el botÃ³n de 'Buscar' \n 3) Pulse en el botÃ³n de 'Eliminar'\n "
+					+ "\n AÃ±adir Propiedad: \n 1) Ir a opciones \n 2) Seleccionar 'AÃ±adir Propiedad' \n 3) Rellenar todos los campos \n 4) Pulsar en el botÃ³n 'Guardar propiedad'", null, JOptionPane.INFORMATION_MESSAGE);
+		}
 		}
 		
 	}

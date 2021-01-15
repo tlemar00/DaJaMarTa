@@ -37,13 +37,17 @@ public class PropiedadWindow extends JFrame{
 	protected JTextArea textArea = new JTextArea();
 	protected JTextField dimensionField = new JTextField();
 	protected JTextField precioField = new JTextField();
+	private Propiedades propiedad;
+	private PropiedadesDAO propiedadDao;
 	
 	private PropiedadWindow(int idProp) {
+		propiedadDao = new PropiedadesDAO();
 		JFrame frame = new JFrame("Demo application");
 		frame.setSize(798, 484);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.listener = new ControlerPropiedadWindow(this);
 		this.idProp = idProp;
+		
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
@@ -59,8 +63,11 @@ public class PropiedadWindow extends JFrame{
 		panel.add(reservarButton);
 		
 		URL img = null;
+		propiedad = propiedadDao.obtenerPropiedadPorId(idProp);
+		System.out.println(propiedad.getImagen());
 		try {
-			img = new URL("https://www.realia.es/uploads/sizes/blog/blog/2019/comprar-casa-o-piso.jpg");
+			img = new URL(propiedad.getImagen());
+			
 		} catch (MalformedURLException e1) {
 			// TODO Auto-generated catch block
 		}

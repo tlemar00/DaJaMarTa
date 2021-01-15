@@ -138,11 +138,10 @@ public class AdminWindow extends JFrame{
 		mntmNewMenuItem.addKeyListener(listener);
 		mnNewMenu.add(mntmNewMenuItem);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Cerrar sesi\u00F3n");
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Ayuda");
+		mntmNewMenuItem_1.addActionListener(listener);
+		mntmNewMenuItem_1.addKeyListener(listener);
 		mnNewMenu.add(mntmNewMenuItem_1);
-		
-		JMenu mnNewMenu_1 = new JMenu("Ayuda");
-		menuBar.add(mnNewMenu_1);
 
 		frmConsultarYEditar.setVisible(true);
 		

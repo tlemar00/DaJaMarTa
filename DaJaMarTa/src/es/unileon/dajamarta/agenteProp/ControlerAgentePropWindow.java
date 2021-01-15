@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import es.unileon.dajamarta.DAO.EmpleadobbddDAO;
 import es.unileon.dajamarta.DAO.PropiedadesDAO;
@@ -88,6 +89,11 @@ public class ControlerAgentePropWindow implements ActionListener, KeyListener{
 			
 		}else if(arg0.getActionCommand().equals("Añadir propiedad")) {
 			NuevaPropWindow.getInstance();
+		}else if(arg0.getActionCommand().equals("Eliminar")) {
+			Propiedades propiedadAEliminar = lista[agentePropWindow.comboBox.getSelectedIndex()];
+			propiedadesDao.borrar(propiedadAEliminar.getIdPropiedad());
+		}else if(arg0.getActionCommand().equals("Ayuda")) {
+			JOptionPane.showMessageDialog(null, "En esta página podrás consultar los usuarios", null, JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 	}

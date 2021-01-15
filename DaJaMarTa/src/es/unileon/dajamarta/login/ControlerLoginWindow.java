@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import es.unileon.dajamarta.DAO.EmpleadobbddDAO;
 import es.unileon.dajamarta.DAO.PropiedadesDAO;
@@ -22,11 +23,12 @@ public class ControlerLoginWindow implements ActionListener, KeyListener{
 	private UsuariosDAO usuarioDao;
 	private LoginWindow loginWindow;
 	private AdminWindow adminWindow;
+	private EmpleadobbddDAO empleadoDao;
 	private AgentePropWindow agentePropWindow;
 	private AgenteVentasWindow agenteVentWindow;
 
 	public ControlerLoginWindow(LoginWindow loginWindow)  {
-		//empleadoDao = new EmpleadobbddDAO();
+		empleadoDao = new EmpleadobbddDAO();
 		usuarioDao = new UsuariosDAO();
 		//Creamos la LoginWindow
 		this.loginWindow = loginWindow;
@@ -39,11 +41,22 @@ public class ControlerLoginWindow implements ActionListener, KeyListener{
 		
 		if (arg0.getActionCommand().equals("Login")) {
 			// LLamamos al dao y nos devuelve la profesion del empleado que quiere acceder
-			System.out.println("Has pulsado login");
-			System.out.println("Contrasena="+u.getContrasenia());
-			System.out.println(loginWindow.userText.getText().toString());
-		} else if (arg0.getActionCommand().equals("Registro")) {
+			Empleadobbdd logueado = new Empleadobbdd();
+			try {
+				logueado = empleadoDao.obtenerEmpleadoPorUser(u.getIdUsuario());
+			} catch(NullPointerException e) {
+				JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecto.", null, JOptionPane.ERROR_MESSAGE);
+			}
 			
+			if(logueado.getCategorias().getNombreCategoria().equals("Administrador")) {
+				AdminWindow.getInstance();
+			} else if(logueado.getCategorias().getNombreCategoria().equals("Propiedades")) {
+				AgentePropWindow.getInstance();
+			} else if(logueado.getCategorias().getNombreCategoria().equals("Ventas")) {
+				AgenteVentasWindow.getInstance();
+			} else if (logueado.getNombre().equals(null)){
+				//JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecto.", null, JOptionPane.ERROR_MESSAGE);
+			}
 		} else if(arg0.getActionCommand().equals("Abrir ventana administrador")) {
 			AdminWindow.getInstance();
 		} else if(arg0.getActionCommand().equals("Abrir ventana agente de propiedades")) {

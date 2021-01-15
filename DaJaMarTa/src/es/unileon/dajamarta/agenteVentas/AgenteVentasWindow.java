@@ -43,14 +43,29 @@ public class AgenteVentasWindow extends JFrame{
 		frame.getContentPane().add(panel);
 		placeComponents(panel);
 		
-		list.setBounds(34, 248, 828, 269);
+		list.setBounds(32, 342, 828, 228);
 		panel.add(list);
 		
 		JButton btnNewButton = new JButton("Ver propiedad");
 		btnNewButton.addKeyListener(listener);
 		btnNewButton.addActionListener(listener);
-		btnNewButton.setBounds(394, 549, 136, 58);
+		btnNewButton.setBounds(394, 590, 136, 58);
 		panel.add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(AgenteVentasWindow.class.getResource("/es/unileon/imagenes/logo.PNG")));
+		lblNewLabel.setBounds(350, 32, 213, 276);
+		panel.add(lblNewLabel);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 101, 22);
+		panel.add(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("Opciones");
+		menuBar.add(mnNewMenu);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Ayuda");
+		mnNewMenu.add(mntmNewMenuItem);
 
 		frame.setVisible(true);
 		

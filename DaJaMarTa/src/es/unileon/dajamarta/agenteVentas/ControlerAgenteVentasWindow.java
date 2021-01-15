@@ -44,10 +44,14 @@ public class ControlerAgenteVentasWindow implements ActionListener, KeyListener{
 	//Recogemos los eventos que ocurren en la ventana
 	public void actionPerformed(ActionEvent arg0) {
 		//HAY QUE CAMBIAR ESTO SI QUEREMOS MÁS DE 10 PROPIEDADES
-		if(arg0.getActionCommand().equals("Ver propiedad")) {
-			PropiedadWindow.getInstance(Character.getNumericValue(agenteVentasWindow.list.getSelectedItem().charAt(0)));
-			//System.out.println(Character.getNumericValue(agenteVentasWindow.list.getSelectedItem().charAt(0)));
+		String id = Character.toString(agenteVentasWindow.list.getSelectedItem().charAt(0));
+		String segundoValor = null;
+		if(agenteVentasWindow.list.getSelectedItem().charAt(1)!='.') {
+			segundoValor = Character.toString(agenteVentasWindow.list.getSelectedItem().charAt(1));
+			id = id+segundoValor;
 		}
+		
+		PropiedadWindow.getInstance(Integer.parseInt(id));
 	}
 
 	@Override

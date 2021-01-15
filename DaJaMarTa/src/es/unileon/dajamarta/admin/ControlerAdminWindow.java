@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import es.unileon.dajamarta.DAO.CategoriasDAO;
 import es.unileon.dajamarta.DAO.EmpleadobbddDAO;
@@ -83,6 +84,8 @@ public class ControlerAdminWindow implements ActionListener, KeyListener{
 			usuarioDao.borrar(usuarioAEliminar.getIdUsuario());
 			empleadoDao.borrar(empleadoAEliminar.getIdEmpleado());
 			
+		}else if(arg0.getActionCommand().equals("Ayuda")) {
+			JOptionPane.showMessageDialog(null, "En esta página podrás consultar los usuarios", null, JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 	}

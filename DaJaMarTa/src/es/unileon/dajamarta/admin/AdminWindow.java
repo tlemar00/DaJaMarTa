@@ -39,6 +39,7 @@ public class AdminWindow extends JFrame{
 	protected JTextField campoEmail;
 	protected JComboBox comboBox = new JComboBox();
 	protected JComboBox comboBox_1 = new JComboBox();
+	protected JMenuItem mntmNewMenuItem_2;
 	
 	private AdminWindow() {
 		EmpleadobbddDAO sesion = new EmpleadobbddDAO();
@@ -141,6 +142,11 @@ public class AdminWindow extends JFrame{
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Ayuda");
 		mntmNewMenuItem_1.addActionListener(listener);
 		mntmNewMenuItem_1.addKeyListener(listener);
+		
+		mntmNewMenuItem_2 = new JMenuItem("Descargar PDF empleados");
+		mnNewMenu.add(mntmNewMenuItem_2);
+		mntmNewMenuItem_2.addActionListener(listener);
+		mntmNewMenuItem_2.addKeyListener(listener);
 		mnNewMenu.add(mntmNewMenuItem_1);
 
 		frmConsultarYEditar.setVisible(true);

@@ -40,8 +40,8 @@ public class ControlerAgentePropWindow implements ActionListener, KeyListener{
 		}
 		
 		String provincias[] = {"Alava","Albacete","Alicante","Almería","Asturias","Avila","Badajoz","Barcelona","Burgos","Cáceres",
-	               "Cádiz","Cantabria","Castellón","Ciudad Real","Córdoba","La Coruña","Cuenca","Gerona","Granada","Guadalajara",
-	               "Guipúzcoa","Huelva","Huesca","Islas Baleares","Jaén","León","Lérida","Lugo","Madrid","Málaga","Murcia","Navarra",
+	               "Cádiz","Cantabria","Castell�n","Ciudad Real","C�rdoba","La Coruña","Cuenca","Gerona","Granada","Guadalajara",
+	               "Guipúzcoa","Huelva","Huesca","Islas Baleares","Jaén","Le�n","Lérida","Lugo","Madrid","Málaga","Murcia","Navarra",
 	               "Orense","Palencia","Las Palmas","Pontevedra","La Rioja","Salamanca","Segovia","Sevilla","Soria","Tarragona",
 	               "Santa Cruz de Tenerife","Teruel","Toledo","Valencia","Valladolid","Vizcaya","Zamora","Zaragoza"};
 		for(int i=0; i < provincias.length; i++) {
@@ -87,21 +87,17 @@ public class ControlerAgentePropWindow implements ActionListener, KeyListener{
 			propiedadesDao.actualizarPropiedad(propiedadEditada);//Mete base de datos
 
 			
-		}else if(arg0.getActionCommand().equals("Añadir propiedad")) {
+		}else if(arg0.getActionCommand().equals("A�adir propiedad")) {
 			NuevaPropWindow.getInstance();
 		}else if(arg0.getActionCommand().equals("Eliminar")) {
 			Propiedades propiedadAEliminar = lista[agentePropWindow.comboBox.getSelectedIndex()];
 			propiedadesDao.borrar(propiedadAEliminar.getIdPropiedad());
-		}else if(arg0.getActionCommand().equals("Ayuda")) {
-			else if(arg0.getActionCommand().equals("Ayuda")) {
-			JOptionPane.showMessageDialog(null, "En esta página podrás: \n "
-					+ "\n Consultar Propiedades: \n 1) Elija una propiedad \n 2) Pulsa el botón de 'Buscar' \n 3) Se rellenaran los campos con los datos de la propiedad seleccionada \n"
-					+ "\n Modificar Propiedades: \n 1) Elija una propiedad \n 2) Pulsa el botón de 'Buscar' \n 3) Modifica el campo. \n 4) Pulsa en el botón de 'Modificar'\n "
-					+ "\n Eliminar Propiedad: \n 1) Elija una propiedad \n 2) Pulsa el botón de 'Buscar' \n 3) Pulse en el botón de 'Eliminar'\n "
-					+ "\n Añadir Propiedad: \n 1) Ir a opciones \n 2) Seleccionar 'Añadir Propiedad' \n 3) Rellenar todos los campos \n 4) Pulsar en el botón 'Guardar propiedad'", null, JOptionPane.INFORMATION_MESSAGE);
+		}else if(arg0.getActionCommand().equals("Ayuda")) {JOptionPane.showMessageDialog(null, "En esta p�gina podr�s: \n "
+					+ "\n Consultar Propiedades: \n 1) Elija una propiedad \n 2) Pulsa el bot�n de 'Buscar' \n 3) Se rellenaran los campos con los datos de la propiedad seleccionada \n"
+					+ "\n Modificar Propiedades: \n 1) Elija una propiedad \n 2) Pulsa el bot�n de 'Buscar' \n 3) Modifica el campo. \n 4) Pulsa en el bot�n de 'Modificar'\n "
+					+ "\n Eliminar Propiedad: \n 1) Elija una propiedad \n 2) Pulsa el bot�n de 'Buscar' \n 3) Pulse en el bot�n de 'Eliminar'\n "
+					+ "\n A�adir Propiedad: \n 1) Ir a opciones \n 2) Seleccionar 'Añadir Propiedad' \n 3) Rellenar todos los campos \n 4) Pulsar en el bot�n 'Guardar propiedad'", null, JOptionPane.INFORMATION_MESSAGE);
 		}
-		}
-		
 	}
 
 	@Override

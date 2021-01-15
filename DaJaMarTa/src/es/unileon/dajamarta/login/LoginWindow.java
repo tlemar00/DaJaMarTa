@@ -104,24 +104,6 @@ public class LoginWindow extends JFrame{
 		loginButton.addActionListener(listener);
 		loginButton.setBounds(253, 340, 86, 50);
 		panel.add(loginButton);
-		
-		JButton abrirAdmin = new JButton("Abrir ventana administrador");
-		abrirAdmin.addKeyListener(listener);
-		abrirAdmin.addActionListener(listener);
-		abrirAdmin.setBounds(369, 433, 202, 21);
-		panel.add(abrirAdmin);
-		
-		JButton abrirVentas = new JButton("Abrir ventana agente de propiedades");
-		abrirVentas.addKeyListener(listener);
-		abrirVentas.addActionListener(listener);
-		abrirVentas.setBounds(369, 465, 202, 23);
-		panel.add(abrirVentas);
-		
-		JButton abrirProp = new JButton("Abrir ventana agente de ventas");
-		abrirProp.addKeyListener(listener);
-		abrirProp.addActionListener(listener);
-		abrirProp.setBounds(369, 500, 202, 23);
-		panel.add(abrirProp);
 		/*ActionListener oyente =new ActionListener() {
 			
 			@Override

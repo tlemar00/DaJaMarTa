@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dajamarta;
+package es.unileon.dajamarta;
 
-import DAO.EmpleadobbddDAO;
+import es.unileon.dajamarta.DAO.*;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
@@ -22,8 +22,8 @@ import modelo.*;
  *
  * @author DAVID
  */
-public class CreaPDF {
-    static void crearEmpleados() throws FileNotFoundException{
+public class PDF {
+    public static void crearEmpleados() throws FileNotFoundException{
         PdfWriter writer = new PdfWriter("Empleados.pdf");
         PdfDocument pdfDoc = new PdfDocument(writer);
         Empleadobbdd[] empleados;

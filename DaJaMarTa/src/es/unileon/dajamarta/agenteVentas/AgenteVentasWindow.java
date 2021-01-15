@@ -1,10 +1,4 @@
 package es.unileon.dajamarta.agenteVentas;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 import javax.swing.*;
 import java.awt.*;
 
@@ -22,8 +16,6 @@ import modelo.Usuarios;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-
-import javax.swing.ImageIcon;
 
 public class AgenteVentasWindow extends JFrame{
 	ImageIcon imagen;
@@ -57,18 +49,6 @@ public class AgenteVentasWindow extends JFrame{
 		lblNewLabel.setBounds(350, 32, 213, 276);
 		panel.add(lblNewLabel);
 		
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 101, 22);
-		panel.add(menuBar);
-		
-		JMenu mnNewMenu = new JMenu("Opciones");
-		menuBar.add(mnNewMenu);
-		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Ayuda");
-		mntmNewMenuItem.addKeyListener(listener);
-		mntmNewMenuItem.addActionListener(listener);
-		mnNewMenu.add(mntmNewMenuItem);
-
 		frame.setVisible(true);
 		
 	}

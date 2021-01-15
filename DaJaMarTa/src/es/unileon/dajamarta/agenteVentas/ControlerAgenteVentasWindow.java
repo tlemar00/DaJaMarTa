@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import es.unileon.dajamarta.DAO.EmpleadobbddDAO;
 import es.unileon.dajamarta.DAO.PropiedadesDAO;
@@ -37,22 +38,21 @@ public class ControlerAgenteVentasWindow implements ActionListener, KeyListener{
 		lista = propiedadDao.obtenerPropiedades();//Rellenamos lista con los empleados
 		//Rellenamos la Combobox
 		for(int i=0; i< lista.length; i++) {//Rellenamos la lista
-			agenteVentasWindow.list.add(lista[i].getIdPropiedad()+"."+lista[i].getTipoPropiedad()+" en calle "+lista[i].getDireccion()+" número "+lista[i].getNumero());
+			agenteVentasWindow.list.add(lista[i].getIdPropiedad()+"."+lista[i].getTipoPropiedad()+" en calle "+lista[i].getDireccion()+" nÃºmero "+lista[i].getNumero());
 		}
 	}
 	
 	//Recogemos los eventos que ocurren en la ventana
 	public void actionPerformed(ActionEvent arg0) {
-		//HAY QUE CAMBIAR ESTO SI QUEREMOS MÁS DE 10 PROPIEDADES
 		String id = Character.toString(agenteVentasWindow.list.getSelectedItem().charAt(0));
 		String segundoValor = null;
 		if(agenteVentasWindow.list.getSelectedItem().charAt(1)!='.') {
 			segundoValor = Character.toString(agenteVentasWindow.list.getSelectedItem().charAt(1));
 			id = id+segundoValor;
 		} else if(arg0.getActionCommand().equals("Ayuda")) {
-			JOptionPane.showMessageDialog(null, "En esta página podrás: \n "
-					+ "\n Reservar propiedad: \n 1) Elije la propiedad \n 2) Selecciona el botón 'Reservar propiedad' \n"
-					+ "\n Vender propiedad: \n 1) Elije la propiedad \n 2) Selecciona el botón 'Vender propiedad' \n 3) Rellena los datos del comprador", null, JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "En esta pÃ¡gina podrÃ¡s: \n "
+					+ "\n Reservar propiedad: \n 1) Elije la propiedad \n 2) Selecciona el botÃ³n 'Reservar propiedad' \n"
+					+ "\n Vender propiedad: \n 1) Elije la propiedad \n 2) Selecciona el botÃ³n 'Vender propiedad' \n 3) Rellena los datos del comprador", null, JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 		PropiedadWindow.getInstance(Integer.parseInt(id));

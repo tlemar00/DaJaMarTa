@@ -4,10 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.FileNotFoundException;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import es.unileon.dajamarta.PDF;
 import es.unileon.dajamarta.DAO.CategoriasDAO;
 import es.unileon.dajamarta.DAO.EmpleadobbddDAO;
 import es.unileon.dajamarta.DAO.PropiedadesDAO;
@@ -19,6 +21,7 @@ import modelo.Categorias;
 import modelo.Empleadobbdd;
 import modelo.Propiedades;
 import modelo.Usuarios;
+import es.unileon.dajamarta.PDF;
 
 public class ControlerAdminWindow implements ActionListener, KeyListener{
 	private EmpleadobbddDAO empleadoDao;
@@ -85,12 +88,19 @@ public class ControlerAdminWindow implements ActionListener, KeyListener{
 			empleadoDao.borrar(empleadoAEliminar.getIdEmpleado());
 			
 		}else if(arg0.getActionCommand().equals("Ayuda")) {
-			JOptionPane.showMessageDialog(null, "En esta página podrás: \n "
+			JOptionPane.showMessageDialog(null, "En esta pagina podras: \n "
 					+ "\n Consultar Usuarios: \n 1) Elija un usuario \n 2) Se rellenaran los campos con los datos del usuario seleccionado \n"
-					+ "\n Modificar Usuarios: \n 1) Elija un usuario \n 2) Modifica el campo. \n 3) Pulsa en el botón de 'Modificar'\n "
-					+ "\n Eliminar Usuarios: \n 1) Elija un usuario \n 2) Pulse en el botón de 'Eliminar'\n "
-					+ "\n Añadir Usuarios: \n 1) Ir a opciones \n 2) Seleccionar 'Crear Nuevo Empleado' \n 3) Rellenar todos los campos \n 4) Pulsar en el botón 'Crear empleado'", null, JOptionPane.INFORMATION_MESSAGE);
+					+ "\n Modificar Usuarios: \n 1) Elija un usuario \n 2) Modifica el campo. \n 3) Pulsa en el boton de 'Modificar'\n "
+					+ "\n Eliminar Usuarios: \n 1) Elija un usuario \n 2) Pulse en el boton de 'Eliminar'\n "
+					+ "\n Agregar Usuarios: \n 1) Ir a opciones \n 2) Seleccionar 'Crear Nuevo Empleado' \n 3) Rellenar todos los campos \n 4) Pulsar en el boton 'Crear empleado'", null, JOptionPane.INFORMATION_MESSAGE);
 		
+		}else if(arg0.getActionCommand().equals("Descargar PDF empleados")) {
+			try {
+				PDF.crearEmpleados();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 	}

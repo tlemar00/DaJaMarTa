@@ -185,9 +185,6 @@ public class AgentePropWindow extends JFrame{
 		mntmNewMenuItem_2.addActionListener(listener);
 		mntmNewMenuItem_2.addKeyListener(listener);
 		mnNewMenu.add(mntmNewMenuItem_2);
-		
-		JMenu mnNewMenu_1 = new JMenu("Ayuda");
-		menuBar.add(mnNewMenu_1);
 
 		frmConsultarYEditar.setVisible(true);
 		

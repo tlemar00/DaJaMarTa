@@ -49,11 +49,17 @@
 	<classpathentry kind="lib" path="required/stax-ex-1.8.jar"/>
 	<classpathentry kind="lib" path="required/txw2-2.3.1.jar"/>
 	<classpathentry kind="lib" path="/hibernate/lib/mysql-connector-java-8.0.21.jar" sourcepath="C:/Users/javia_66o2ewb/.m2/repository/mysql/mysql-connector-java/8.0.21/mysql-connector-java-8.0.21-sources.jar"/>
-	<classpathentry kind="lib" path="DaJaMarTa/libreries/poi-4.1.2.jar"/>
-	<classpathentry kind="lib" path="DaJaMarTa/libreries/poi-examples-4.1.2.jar"/>
-	<classpathentry kind="lib" path="DaJaMarTa/libreries/poi-excelant-4.1.2.jar"/>
-	<classpathentry kind="lib" path="DaJaMarTa/libreries/poi-ooxml-4.1.2.jar"/>
-	<classpathentry kind="lib" path="DaJaMarTa/libreries/poi-ooxml-schemas-4.1.2.jar"/>
-	<classpathentry kind="lib" path="DaJaMarTa/libreries/poi-scratchpad-4.1.2.jar"/>
+	<classpathentry kind="lib" path="DaJaMarTa/libreries/sign-7.1.11.jar"/>
+	<classpathentry kind="lib" path="DaJaMarTa/libreries/styled-xml-parser-7.1.11.jar"/>
+	<classpathentry kind="lib" path="DaJaMarTa/libreries/svg-7.1.11.jar"/>
+	<classpathentry kind="lib" path="DaJaMarTa/libreries/barcodes-7.1.11.jar"/>
+	<classpathentry kind="lib" path="DaJaMarTa/libreries/font-asian-7.1.11.jar"/>
+	<classpathentry kind="lib" path="DaJaMarTa/libreries/forms-7.1.11.jar"/>
+	<classpathentry kind="lib" path="DaJaMarTa/libreries/hyph-7.1.11.jar"/>
+	<classpathentry kind="lib" path="DaJaMarTa/libreries/io-7.1.11.jar"/>
+	<classpathentry kind="lib" path="DaJaMarTa/libreries/kernel-7.1.11.jar"/>
+	<classpathentry kind="lib" path="DaJaMarTa/libreries/layout-7.1.11.jar"/>
+	<classpathentry kind="lib" path="DaJaMarTa/libreries/pdfa-7.1.11.jar"/>
+	<classpathentry kind="lib" path="DaJaMarTa/libreries/pdftest-7.1.11.jar"/>
 	<classpathentry kind="output" path="DaJaMarTa/build/classes"/>
 </classpath>

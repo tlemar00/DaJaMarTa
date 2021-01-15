@@ -39,13 +39,14 @@ public class AgenteVentasWindow extends JFrame{
 		this.listener = new ControlerAgenteVentasWindow(this);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
 		frame.getContentPane().add(panel);
 		placeComponents(panel);
 		
-		list.setBounds(34, 248, 840, 269);
+		list.setBounds(34, 248, 828, 269);
 		panel.add(list);
 		
-		JButton btnNewButton = new JButton("Consultar propiedad");
+		JButton btnNewButton = new JButton("Ver propiedad");
 		btnNewButton.addKeyListener(listener);
 		btnNewButton.addActionListener(listener);
 		btnNewButton.setBounds(394, 549, 136, 58);

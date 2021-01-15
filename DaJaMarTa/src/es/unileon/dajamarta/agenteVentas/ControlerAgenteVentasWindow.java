@@ -29,7 +29,7 @@ public class ControlerAgenteVentasWindow implements ActionListener, KeyListener{
 		usuarioDao = new UsuariosDAO();
 		propiedadDao = new PropiedadesDAO();
 		this.agenteVentasWindow = agenteVentasWindow;
-		rellenaDatosComponentes();
+		//rellenaDatosComponentes();
 	}
 	
 	public void rellenaDatosComponentes() {

@@ -1,21 +1,57 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 09-ene-2021 12:44:29 by Hibernate Tools 4.3.1 -->
+<!-- Generated 14-ene-2021 21:40:34 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelo.Propiedades" table="propiedades" catalog="insofinal1" optimistic-lock="version">
         <id name="idPropiedad" type="int">
             <column name="IdPropiedad" />
             <generator class="assigned" />
         </id>
+        <many-to-one name="clientes" class="modelo.Clientes" fetch="select">
+            <column name="IdCliente" not-null="true" />
+        </many-to-one>
+        <many-to-one name="empleadobbdd" class="modelo.Empleadobbdd" fetch="select">
+            <column name="IdTrabajador" not-null="true" />
+        </many-to-one>
         <property name="nombre" type="string">
             <column name="Nombre" length="50" not-null="true" />
         </property>
         <property name="precio" type="float">
             <column name="Precio" precision="12" scale="0" not-null="true" />
         </property>
-        <property name="ubicacion" type="string">
-            <column name="Ubicacion" length="300" not-null="true" />
+        <property name="direccion" type="string">
+            <column name="Direccion" length="300" not-null="true" />
+        </property>
+        <property name="ciudad" type="string">
+            <column name="Ciudad" length="150" not-null="true" />
+        </property>
+        <property name="provincia" type="string">
+            <column name="Provincia" length="45" not-null="true" />
+        </property>
+        <property name="numero" type="string">
+            <column name="Numero" length="45" not-null="true" />
+        </property>
+        <property name="puerta" type="string">
+            <column name="Puerta" length="45" not-null="true" />
+        </property>
+        <property name="piso" type="int">
+            <column name="Piso" not-null="true" />
+        </property>
+        <property name="escalera" type="string">
+            <column name="Escalera" length="45" not-null="true" />
+        </property>
+        <property name="vendido" type="int">
+            <column name="Vendido" not-null="true" />
+        </property>
+        <property name="reservado" type="int">
+            <column name="Reservado" not-null="true" />
+        </property>
+        <property name="imagen" type="string">
+            <column name="Imagen" length="1500" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="Descripcion" length="3000" />
         </property>
         <property name="tamanio" type="java.lang.Float">
             <column name="Tamanio" precision="12" scale="0" />

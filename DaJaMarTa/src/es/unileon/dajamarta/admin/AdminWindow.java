@@ -36,7 +36,6 @@ public class AdminWindow extends JFrame{
 	protected JTextField campoApellido;
 	protected JTextField campoApellido2;
 	protected JTextField campoNif;
-	protected JTextField campoPuesto;
 	protected JTextField campoEmail;
 	protected JComboBox comboBox = new JComboBox();
 	
@@ -46,7 +45,7 @@ public class AdminWindow extends JFrame{
 		
 		JFrame frmConsultarYEditar = new JFrame("Demo application");
 		frmConsultarYEditar.setTitle("Consultar y editar empleados");
-		frmConsultarYEditar.setSize(1060, 579);
+		frmConsultarYEditar.setSize(1060, 612);
 		frmConsultarYEditar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.listener = new ControlerAdminWindow(this);
 		
@@ -60,7 +59,7 @@ public class AdminWindow extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(924, 439, 89, 50);
+		btnNewButton.setBounds(924, 468, 89, 50);
 		panel.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Elija usuario:");
@@ -88,7 +87,7 @@ public class AdminWindow extends JFrame{
 		campoApellido2.setColumns(10);
 		
 		campoEmail = new JTextField();
-		campoEmail.setBounds(503, 454, 163, 20);
+		campoEmail.setBounds(503, 454, 246, 20);
 		panel.add(campoEmail);
 		campoEmail.setColumns(10);
 		campoNif = new JTextField();
@@ -101,7 +100,7 @@ public class AdminWindow extends JFrame{
 		panel.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Primer apellido");
-		lblNewLabel_3.setBounds(168, 429, 86, 14);
+		lblNewLabel_3.setBounds(163, 429, 86, 14);
 		panel.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Segundo apellido");
@@ -115,21 +114,20 @@ public class AdminWindow extends JFrame{
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.addKeyListener(listener);
 		btnEditar.addActionListener(listener);
-		btnEditar.setBounds(801, 439, 89, 50);
+		btnEditar.setBounds(924, 407, 89, 50);
 		panel.add(btnEditar);
 		
 		JLabel lblNewLabel_6 = new JLabel("Email");
 		lblNewLabel_6.setBounds(503, 429, 46, 14);
 		panel.add(lblNewLabel_6);
 		
-		campoPuesto = new JTextField();
-		campoPuesto.setBounds(676, 454, 93, 20);
-		panel.add(campoPuesto);
-		campoPuesto.setColumns(10);
-		
 		JLabel lblNewLabel_7 = new JLabel("Puesto");
-		lblNewLabel_7.setBounds(676, 429, 46, 14);
+		lblNewLabel_7.setBounds(759, 429, 46, 14);
 		panel.add(lblNewLabel_7);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setBounds(759, 453, 134, 22);
+		panel.add(comboBox_1);
 		
 		JMenuBar menuBar = new JMenuBar();
 		frmConsultarYEditar.setJMenuBar(menuBar);
@@ -195,7 +193,6 @@ public class AdminWindow extends JFrame{
 				.configure("hibernate.cfg.xml")
 				.addAnnotatedClass(AgentePropiedades.class)
 				.buildSessionFactory();
-
 							
 				//Crear sesión
 				Session session = factory.getCurrentSession();

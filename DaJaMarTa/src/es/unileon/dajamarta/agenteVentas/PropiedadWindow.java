@@ -40,6 +40,7 @@ public class PropiedadWindow extends JFrame{
 		this.listener = new ControlerPropiedadWindow(this);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
 		frame.getContentPane().add(panel);
 		placeComponents(panel);
 		
@@ -48,7 +49,7 @@ public class PropiedadWindow extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(374, 380, 474, 32);
+		btnNewButton.setBounds(374, 379, 474, 35);
 		panel.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Titulo");

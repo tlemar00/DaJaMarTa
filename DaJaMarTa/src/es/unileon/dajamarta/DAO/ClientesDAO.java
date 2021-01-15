@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package es.unileon.dajamarta.DAO;
 import java.util.List;
 import modelo.Clientes;
 import modelo.HibernateUtil;

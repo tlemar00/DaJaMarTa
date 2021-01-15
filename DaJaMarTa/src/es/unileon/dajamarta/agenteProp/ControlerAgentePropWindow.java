@@ -60,7 +60,7 @@ public class ControlerAgentePropWindow implements ActionListener, KeyListener{
 			
 			//Lo enviamos a la bbdd
 			empleadoDao.actualizarEmpleado(empleadoEditado);
-		}else if(arg0.getActionCommand().equals("Crear nuevo empleado")) {
+		}else if(arg0.getActionCommand().equals("Añadir propiedad")) {
 			NuevaPropWindow.getInstance();
 		}
 		

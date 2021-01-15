@@ -7,33 +7,43 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 
+import es.unileon.dajamarta.DAO.ClientesDAO;
 import es.unileon.dajamarta.DAO.EmpleadobbddDAO;
 import es.unileon.dajamarta.DAO.PropiedadesDAO;
 import es.unileon.dajamarta.DAO.UsuariosDAO;
 import es.unileon.dajamarta.admin.AdminWindow;
+import modelo.Clientes;
 import modelo.Empleadobbdd;
 import modelo.Propiedades;
 import modelo.Usuarios;
 
 public class ControlerNuevaPropWindow implements ActionListener, KeyListener{
 	private EmpleadobbddDAO empleadoDao;
-	private UsuariosDAO usuarioDao;
-	private NuevaPropWindow nuevoUsuarioWindow;
-	private Empleadobbdd[] lista; //Lista con todos los empleados
+	private PropiedadesDAO propiedadDao;
+	private NuevaPropWindow nuevaPropWindow;
+	private ClientesDAO clienteDao;
 
-	public ControlerNuevaPropWindow(NuevaPropWindow nuevoUsuarioWindow)  {
+	public ControlerNuevaPropWindow(NuevaPropWindow nuevaPropWindow)  {
 		empleadoDao = new EmpleadobbddDAO();
-		usuarioDao = new UsuariosDAO();
-		this.nuevoUsuarioWindow = nuevoUsuarioWindow;
+		propiedadDao = new PropiedadesDAO();
+		clienteDao = new ClientesDAO();
+		this.nuevaPropWindow = nuevaPropWindow;
 		rellenaDatosComponentes();
 	}
 	
 	public void rellenaDatosComponentes() {
-		lista = empleadoDao.obtenerEmpleados();//Rellenamos lista con los empleados
 		//Rellenamos la Combobox
-		for(int i=0; i< lista.length; i++) {//Rellenamos la combobox
-			//adminWindow.comboBox.addItem(lista[i].getEmail());
-		}
+		nuevaPropWindow.comboBox.addItem("Piso");
+		nuevaPropWindow.comboBox.addItem("Vivienda");
+		nuevaPropWindow.comboBox.addItem("Habitación");
+		nuevaPropWindow.comboBox.addItem("Garaje");
+		nuevaPropWindow.comboBox.addItem("Trastero");
+		nuevaPropWindow.comboBox.addItem("Oficina");
+		nuevaPropWindow.comboBox.addItem("Local");
+		nuevaPropWindow.comboBox.addItem("Nave");
+		nuevaPropWindow.comboBox.addItem("Solar");
+		nuevaPropWindow.comboBox.addItem("Terreno");
+		nuevaPropWindow.comboBox.addItem("Edificio");
 	}
 	
 	//Recogemos los eventos que ocurren en la ventana
@@ -41,22 +51,30 @@ public class ControlerNuevaPropWindow implements ActionListener, KeyListener{
 		//Obtenemos el objeto usuario según el nombre introducido
 		//Usuarios u = usuarioDao.obtenerUsuario(adminWindow.userText.getText().toString());
 		//No estamos recogiendo en ningun sitio lo de login y tal
-		if(arg0.getActionCommand().equals("Buscar")) {
-			/*adminWindow.campoNombre.setText(lista[adminWindow.comboBox.getSelectedIndex()].getNombre());
-			adminWindow.campoApellido.setText(lista[adminWindow.comboBox.getSelectedIndex()].getApellido1());
-			adminWindow.campoApellido2.setText(lista[adminWindow.comboBox.getSelectedIndex()].getApellido2());
-			adminWindow.campoEmail.setText(lista[adminWindow.comboBox.getSelectedIndex()].getEmail());
-			adminWindow.campoNif.setText(lista[adminWindow.comboBox.getSelectedIndex()].getNifnie());*/
-			//adminWindow.campoPuesto.setText(lista[adminWindow.comboBox.getSelectedIndex()].getPuesto());
-		}else if(arg0.getActionCommand().equals("Editar")) {
-			System.out.println("Boton editar");
-			//Empleadobbdd empleadoEditado = lista[adminWindow.comboBox.getSelectedIndex()];
+		
+		
+	
+		if(arg0.getActionCommand().equals("Guardar propiedad")) {//Cuando pulsamos guardar propiedad
 			
-			//Creamos objeto con los nuevos datso
-			//empleadoEditado.setNombre(adminWindow.campoNombre.getText());
-			
-			//Lo enviamos a la bbdd
-			//empleadoDao.actualizarEmpleado(empleadoEditado);
+			/*Propiedades p = new Propiedades();
+			Clientes c = new Clientes();
+			Empleadobbdd e = new Empleadobbdd();
+			p.setNombre(nuevaPropWindow.textTitulo.getText());
+			p.setDireccion(nuevaPropWindow.textCalle.getText());
+			p.setCiudad(nuevaPropWindow.textPobl.getText());
+			p.setProvincia("Madrid");
+			p.setPrecio(Float.parseFloat(nuevaPropWindow.textPrecio.getText()));
+			p.setNumero(nuevaPropWindow.textNumero.getText());
+			p.setPuerta(nuevaPropWindow.textPuerta.getText());
+			p.setPiso(1);
+			p.setEscalera("esc");
+			p.setVendido(0);
+			p.setReservado(0);
+			p.setClientes(c);
+			p.setEmpleadobbdd(e);
+			propiedadDao.actualizarPropiedad(p);//Mete base de datos*/
+		} else if(nuevaPropWindow.comboBox.getSelectedItem().equals("Terreno")) {
+			nuevaPropWindow.textEscalera.setVisible(false);
 		}
 	}
 

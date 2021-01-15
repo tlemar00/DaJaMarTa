@@ -11,7 +11,6 @@
     <mapping resource="modelo/Categorias.hbm.xml"/>
     <mapping resource="modelo/Usuarios.hbm.xml"/>
     <mapping resource="modelo/Propiedades.hbm.xml"/>
-    
+    <mapping resource="modelo/Clientes.hbm.xml"/>
   </session-factory>
-  
 </hibernate-configuration>

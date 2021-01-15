@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package es.unileon.dajamarta.DAO;
 
 import java.util.List;
 import modelo.Empleadobbdd;
@@ -37,6 +37,13 @@ public class EmpleadobbddDAO {
         tx = session.beginTransaction();
         session.createQuery("Delete Empleadobbdd p WHERE p.idEmpleado=:param1").setParameter("param1",id).executeUpdate();
         tx.commit();
+    }
+    
+    public Empleadobbdd[] obtenerEmpleados(){
+        Query query = session.createQuery("SELECT p FROM Empleadobbdd p");
+        List res = query.list();
+        Empleadobbdd[] miarray = new Empleadobbdd[res.size()];
+        return miarray = (Empleadobbdd[]) res.toArray(miarray);
     }
     
     public void actualizarEmpleado(Empleadobbdd empleado) {

@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dajamarta;
-import DAO.*;
+package es.unileon.dajamarta;
+import es.unileon.dajamarta.DAO.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

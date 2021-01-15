@@ -38,7 +38,7 @@ public class UsuariosDAO {
         else return (Usuarios) res.get(0);
     }
     
-    public void borrar(int id){
+    public void borrar(String id){
         tx = session.beginTransaction();
         session.createQuery("Delete Usuarios p WHERE p.idUsuario=:param1").setParameter("param1",id).executeUpdate();
         tx.commit();

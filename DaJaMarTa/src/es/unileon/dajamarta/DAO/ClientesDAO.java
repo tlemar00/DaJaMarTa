@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package es.unileon.dajamarta.DAO;
 import java.util.List;
 import modelo.Clientes;
 import modelo.HibernateUtil;
@@ -32,6 +32,7 @@ public class ClientesDAO {
     }
 
     public void crearCliente(Clientes cliente){
+    	
         String consulta2 = "FROM Clientes n";
         Query query2 = session.createQuery(consulta2);
         List<Clientes> clientes = query2.list();

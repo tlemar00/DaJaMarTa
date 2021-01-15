@@ -38,6 +38,7 @@ public class AdminWindow extends JFrame{
 	protected JTextField campoNif;
 	protected JTextField campoEmail;
 	protected JComboBox comboBox = new JComboBox();
+	protected JComboBox comboBox_1 = new JComboBox();
 	
 	private AdminWindow() {
 		EmpleadobbddDAO sesion = new EmpleadobbddDAO();
@@ -55,10 +56,8 @@ public class AdminWindow extends JFrame{
 		placeComponents(panel);
 		
 		JButton btnNewButton = new JButton("Eliminar");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		btnNewButton.addActionListener(listener);
+		btnNewButton.addKeyListener(listener);
 		btnNewButton.setBounds(924, 468, 89, 50);
 		panel.add(btnNewButton);
 		
@@ -125,7 +124,6 @@ public class AdminWindow extends JFrame{
 		lblNewLabel_7.setBounds(759, 429, 46, 14);
 		panel.add(lblNewLabel_7);
 		
-		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setBounds(759, 453, 134, 22);
 		panel.add(comboBox_1);
 		

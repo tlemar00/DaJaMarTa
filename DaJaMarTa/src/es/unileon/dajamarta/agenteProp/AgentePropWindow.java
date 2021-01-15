@@ -38,7 +38,7 @@ public class AgentePropWindow extends JFrame{
 	protected JTextField textField_piso;
 	protected JTextField textField_Poblacion;
 	protected JTextField textField_escalera;
-	protected JComboBox comboBox_propiedad = new JComboBox();
+	protected JComboBox comboBox = new JComboBox();
 	protected JTextField textField_Precio;
 	protected JTextField textField_titulo;
 	protected JSpinner spinner;
@@ -149,7 +149,6 @@ public class AgentePropWindow extends JFrame{
 		lblNewLabel_provincia.setBounds(330, 358, 78, 14);
 		panel.add(lblNewLabel_provincia);
 		
-		comboBox_provincia = new JComboBox();
 		comboBox_provincia.setBounds(394, 354, 234, 22);
 		panel.add(comboBox_provincia);
 		
@@ -222,9 +221,9 @@ public class AgentePropWindow extends JFrame{
 		
 		
 		
-		comboBox_propiedad.setBounds(330, 129, 298, 22);
-		comboBox_propiedad.addActionListener(listener);
-		panel.add(comboBox_propiedad);
+		comboBox.setBounds(330, 129, 298, 22);
+		comboBox.addActionListener(listener);
+		panel.add(comboBox);
 		/*ActionListener oyente =new ActionListener() {
 			
 			@Override

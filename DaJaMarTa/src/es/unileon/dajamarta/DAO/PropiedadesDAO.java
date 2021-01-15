@@ -8,6 +8,8 @@ package es.unileon.dajamarta.DAO;
 import java.util.List;
 import static javassist.CtMethod.ConstParameter.string;
 import javax.imageio.spi.ServiceRegistry;
+
+import modelo.Clientes;
 import modelo.HibernateUtil;
 import org.hibernate.Query;
     import org.hibernate.Session;
@@ -29,12 +31,30 @@ public class PropiedadesDAO {
         session = sf.openSession();
     }
     
+    public void crearPropiedad(Propiedades propiedad){
+    	
+        String consulta2 = "FROM Clientes n";
+        Query query2 = session.createQuery(consulta2);
+        List<Clientes> clientes = query2.list();
+        tx = session.beginTransaction();
+        propiedad.setIdPropiedad(clientes.size());
+        session.save(propiedad);
+        tx.commit();
+    }
+
     public Propiedades[] obtenerPropiedadesNoVendidas(int id){
         Query query = session.createQuery("SELECT p FROM Propiedades p WHERE p.vendido=:param1");
         query.setParameter("param1",id);
         List res = query.list();
         Propiedades[] miarray = new Propiedades[res.size()];
         return miarray = (Propiedades[]) res.toArray(miarray);
+    }
+    
+    public Propiedades obtenerPropiedadPorId(int id){
+        Query query = session.createQuery("SELECT t FROM Propiedades t WHERE t.idPropiedad=:param1");
+        query.setParameter("param1",id);
+        List res = query.list();
+        return (Propiedades) res.get(0);
     }
     
     public Propiedades[] obtenerPropiedades(){

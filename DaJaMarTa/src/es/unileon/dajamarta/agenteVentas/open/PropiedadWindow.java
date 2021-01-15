@@ -1,4 +1,4 @@
-package es.unileon.dajamarta.agenteVentas;
+package es.unileon.dajamarta.agenteVentas.open;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -32,29 +32,31 @@ public class PropiedadWindow extends JFrame{
 	String nombre;
 	private static PropiedadWindow instance; // Singleton
 	private ControlerPropiedadWindow listener;
+	protected int idProp;
+	protected JLabel lblTitulo = new JLabel();
+	protected JTextArea textArea = new JTextArea();
+	protected JTextField dimensionField = new JTextField();
+	protected JTextField precioField = new JTextField();
 	
-	private PropiedadWindow() {
+	private PropiedadWindow(int idProp) {
 		JFrame frame = new JFrame("Demo application");
-		frame.setSize(894, 587);
+		frame.setSize(798, 484);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.listener = new ControlerPropiedadWindow(this);
+		this.idProp = idProp;
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
 		frame.getContentPane().add(panel);
 		placeComponents(panel);
 		
-		JButton btnNewButton = new JButton("Reservar propiedad(abrir alerta, si se reserva ningun vendedor podr\u00E1 reservar ni vender)");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton reservarButton = new JButton("Reservar propiedad");
+		reservarButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(374, 379, 474, 35);
-		panel.add(btnNewButton);
-		
-		JLabel lblNewLabel = new JLabel("Titulo");
-		lblNewLabel.setBounds(307, 24, 78, 14);
-		panel.add(lblNewLabel);
+		reservarButton.setBounds(455, 351, 175, 35);
+		panel.add(reservarButton);
 		
 		URL img = null;
 		try {
@@ -70,9 +72,35 @@ public class PropiedadWindow extends JFrame{
 		JLabel label = new JLabel("", image, JLabel.CENTER);
 		panel.add( label, BorderLayout.CENTER );
 		
-		JLabel lblNewLabel_2 = new JLabel("Descripcion");
-		lblNewLabel_2.setBounds(307, 75, 138, 14);
-		panel.add(lblNewLabel_2);
+		JTextArea textArea_1 = new JTextArea();
+		textArea_1.setEditable(false);
+		textArea_1.setBounds(326, 72, 434, 114);
+		panel.add(textArea_1);
+		
+		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblTitulo.setBounds(326, 11, 522, 33);
+		panel.add(lblTitulo);
+		
+		JLabel lblNewLabel_3 = new JLabel("m2");
+		lblNewLabel_3.setBounds(336, 204, 46, 14);
+		panel.add(lblNewLabel_3);
+		dimensionField.setEditable(false);
+		dimensionField.setText("");
+		dimensionField.setBounds(362, 201, 86, 20);
+		panel.add(dimensionField);
+		dimensionField.setColumns(10);
+		
+		JLabel lblNewLabel_4 = new JLabel("Precio marcado por el cliente");
+		lblNewLabel_4.setBounds(469, 204, 175, 14);
+		panel.add(lblNewLabel_4);
+		
+		precioField.setEditable(false);
+		precioField.setBounds(664, 201, 97, 20);
+		panel.add(precioField);
+		precioField.setColumns(10);
+		
+		textArea.setBounds(326, 55, 516, 99);
+		panel.add(textArea);
 
 		frame.setVisible(true);
 		
@@ -83,11 +111,11 @@ public class PropiedadWindow extends JFrame{
 		
 	}
 	
-	public synchronized static PropiedadWindow getInstance(){
+	public synchronized static PropiedadWindow getInstance(int idProp){
 
 		if (instance == null) {
 			try {
-				instance = new PropiedadWindow();
+				instance = new PropiedadWindow(idProp);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -100,10 +128,10 @@ public class PropiedadWindow extends JFrame{
 
 		panel.setLayout(null);
 		
-		JButton registerButton = new JButton("Marcar como vendida (Inserta datos de comprador)");
-		registerButton.addKeyListener(listener);
-		registerButton.addActionListener(listener);
-		registerButton.setBounds(30, 377, 287, 38);
-		panel.add(registerButton);
+		JButton venderButton = new JButton("Marcar como vendida");
+		venderButton.addKeyListener(listener);
+		venderButton.addActionListener(listener);
+		venderButton.setBounds(153, 349, 175, 38);
+		panel.add(venderButton);
 	}
 }

@@ -46,15 +46,14 @@ public class ControlerNuevaPropWindow implements ActionListener, KeyListener{
 		nuevaPropWindow.comboBox.addItem("Terreno");
 		nuevaPropWindow.comboBox.addItem("Edificio");
 		
-		nuevaPropWindow.comboBox_1.addItem("Ávila");
-		nuevaPropWindow.comboBox_1.addItem("Burgos");
-		nuevaPropWindow.comboBox_1.addItem("León");
-		nuevaPropWindow.comboBox_1.addItem("Palencia");
-		nuevaPropWindow.comboBox_1.addItem("Salamanca");
-		nuevaPropWindow.comboBox_1.addItem("Segovia");
-		nuevaPropWindow.comboBox_1.addItem("Soria");
-		nuevaPropWindow.comboBox_1.addItem("Valladolid");
-		nuevaPropWindow.comboBox_1.addItem("Zamora");
+		String provincias[] = {"Alava","Albacete","Alicante","Almería","Asturias","Avila","Badajoz","Barcelona","Burgos","Cáceres",
+		               "Cádiz","Cantabria","Castellón","Ciudad Real","Córdoba","La Coruña","Cuenca","Gerona","Granada","Guadalajara",
+		               "Guipúzcoa","Huelva","Huesca","Islas Baleares","Jaén","León","Lérida","Lugo","Madrid","Málaga","Murcia","Navarra",
+		               "Orense","Palencia","Las Palmas","Pontevedra","La Rioja","Salamanca","Segovia","Sevilla","Soria","Tarragona",
+		               "Santa Cruz de Tenerife","Teruel","Toledo","Valencia","Valladolid","Vizcaya","Zamora","Zaragoza"};
+		for(int i=0; i < provincias.length; i++) {
+			nuevaPropWindow.comboBox_1.addItem(provincias[i]);
+		}
 	}
 	
 	//Recogemos los eventos que ocurren en la ventana
@@ -105,7 +104,7 @@ public class ControlerNuevaPropWindow implements ActionListener, KeyListener{
 				p.setReservado(0);
 				p.setClientes(c);
 				p.setEmpleadobbdd(e);
-				propiedadDao.actualizarPropiedad(p);//Mete base de datos
+				propiedadDao.crearPropiedad(p);//Mete base de datos
 			}
 			
 		}

@@ -31,14 +31,15 @@ public class NuevoUsuarioWindow extends JFrame{
 	String nombre;
 	private static NuevoUsuarioWindow instance; // Singleton
 	private ControlerNuevoUsuarioWindow listener;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
+	protected JTextField nombreField;
+	protected JTextField apellido1Field;
+	protected JTextField apellido2Field;
+	protected JTextField nifField;
+	protected JTextField emailField;
+	protected JTextField usuarioField;
+	protected JTextField contraField;
+	protected JTextField contra2Field;
+	protected JComboBox comboBox = new JComboBox();
 	
 	private NuevoUsuarioWindow() {
 		JFrame frame = new JFrame("Demo application");
@@ -51,30 +52,30 @@ public class NuevoUsuarioWindow extends JFrame{
 		frame.getContentPane().add(panel);
 		placeComponents(panel);
 		
-		textField = new JTextField();
-		textField.setBounds(130, 113, 86, 20);
-		panel.add(textField);
-		textField.setColumns(10);
+		nombreField = new JTextField();
+		nombreField.setBounds(130, 113, 86, 20);
+		panel.add(nombreField);
+		nombreField.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(130, 144, 86, 20);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
+		apellido1Field = new JTextField();
+		apellido1Field.setBounds(130, 144, 86, 20);
+		panel.add(apellido1Field);
+		apellido1Field.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(130, 175, 86, 20);
-		panel.add(textField_2);
-		textField_2.setColumns(10);
+		apellido2Field = new JTextField();
+		apellido2Field.setBounds(130, 175, 86, 20);
+		panel.add(apellido2Field);
+		apellido2Field.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(130, 206, 86, 20);
-		panel.add(textField_3);
-		textField_3.setColumns(10);
+		nifField = new JTextField();
+		nifField.setBounds(130, 206, 86, 20);
+		panel.add(nifField);
+		nifField.setColumns(10);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(130, 237, 263, 20);
-		panel.add(textField_4);
-		textField_4.setColumns(10);
+		emailField = new JTextField();
+		emailField.setBounds(130, 237, 263, 20);
+		panel.add(emailField);
+		emailField.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nombre");
 		lblNewLabel_1.setBounds(28, 116, 46, 14);
@@ -100,11 +101,12 @@ public class NuevoUsuarioWindow extends JFrame{
 		lblNewLabel_6.setBounds(28, 271, 46, 14);
 		panel.add(lblNewLabel_6);
 		
-		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(130, 267, 263, 22);
 		panel.add(comboBox);
 		
 		JButton btnNewButton = new JButton("Crear empleado");
+		btnNewButton.addActionListener(listener);
+		btnNewButton.addKeyListener(listener);
 		btnNewButton.setBounds(165, 332, 119, 23);
 		panel.add(btnNewButton);
 		
@@ -118,15 +120,15 @@ public class NuevoUsuarioWindow extends JFrame{
 		lblNewLabel_7.setBounds(239, 147, 58, 14);
 		panel.add(lblNewLabel_7);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(307, 113, 86, 20);
-		panel.add(textField_5);
-		textField_5.setColumns(10);
+		usuarioField = new JTextField();
+		usuarioField.setBounds(307, 113, 86, 20);
+		panel.add(usuarioField);
+		usuarioField.setColumns(10);
 		
-		textField_6 = new JTextField();
-		textField_6.setBounds(307, 144, 86, 20);
-		panel.add(textField_6);
-		textField_6.setColumns(10);
+		contraField = new JTextField();
+		contraField.setBounds(307, 144, 86, 20);
+		panel.add(contraField);
+		contraField.setColumns(10);
 		
 		JLabel lblNewLabel_8 = new JLabel("");
 		lblNewLabel_8.setIcon(new ImageIcon(NuevoUsuarioWindow.class.getResource("/es/unileon/imagenes/edificio.png")));
@@ -141,10 +143,10 @@ public class NuevoUsuarioWindow extends JFrame{
 		lblNewLabel_10.setBounds(239, 188, 63, 14);
 		panel.add(lblNewLabel_10);
 		
-		textField_7 = new JTextField();
-		textField_7.setBounds(307, 175, 86, 20);
-		panel.add(textField_7);
-		textField_7.setColumns(10);
+		contra2Field = new JTextField();
+		contra2Field.setBounds(307, 175, 86, 20);
+		panel.add(contra2Field);
+		contra2Field.setColumns(10);
 		
 		JLabel lblNewLabel_10_1 = new JLabel("usuario");
 		lblNewLabel_10_1.setBounds(239, 122, 63, 14);

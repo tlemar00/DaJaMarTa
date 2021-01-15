@@ -22,7 +22,6 @@ public class ControlerAgentePropWindow implements ActionListener, KeyListener{
 	private PropiedadesDAO propiedadesDao;
 	private AgentePropWindow agentePropWindow;
 	private Propiedades[] lista; //Lista con todas las propiedades
-	private NuevaPropWindow nuevaPropWindow;
 
 	public ControlerAgentePropWindow(AgentePropWindow agentePropWindow)  {
 		
@@ -36,7 +35,16 @@ public class ControlerAgentePropWindow implements ActionListener, KeyListener{
 		lista = propiedadesDao.obtenerPropiedades();//Rellenamos lista con las propiedades
 		//Rellenamos la Combobox
 		for(int i=0; i< lista.length; i++) {//Rellenamos la combobox
-			agentePropWindow.comboBox_propiedad.addItem(lista[i].getNombre());
+			agentePropWindow.comboBox.addItem(lista[i].getIdPropiedad()+"."+lista[i].getTipoPropiedad()+" en calle "+lista[i].getDireccion()+" número "+lista[i].getNumero());
+		}
+		
+		String provincias[] = {"Alava","Albacete","Alicante","Almería","Asturias","Avila","Badajoz","Barcelona","Burgos","Cáceres",
+	               "Cádiz","Cantabria","Castellón","Ciudad Real","Córdoba","La Coruña","Cuenca","Gerona","Granada","Guadalajara",
+	               "Guipúzcoa","Huelva","Huesca","Islas Baleares","Jaén","León","Lérida","Lugo","Madrid","Málaga","Murcia","Navarra",
+	               "Orense","Palencia","Las Palmas","Pontevedra","La Rioja","Salamanca","Segovia","Sevilla","Soria","Tarragona",
+	               "Santa Cruz de Tenerife","Teruel","Toledo","Valencia","Valladolid","Vizcaya","Zamora","Zaragoza"};
+		for(int i=0; i < provincias.length; i++) {
+			agentePropWindow.comboBox_provincia.addItem(provincias[i]);
 		}
 	}
 	
@@ -47,31 +55,33 @@ public class ControlerAgentePropWindow implements ActionListener, KeyListener{
 		//No estamos recogiendo en ningun sitio lo de login y tal
 		if(arg0.getActionCommand().equals("Buscar")) {
 
-			agentePropWindow.textField_Calle.setText(lista[agentePropWindow.comboBox_propiedad.getSelectedIndex()].getDireccion());
-			agentePropWindow.textField_numero.setText(lista[agentePropWindow.comboBox_propiedad.getSelectedIndex()].getNumero());
-			agentePropWindow.textField_Puerta.setText(lista[agentePropWindow.comboBox_propiedad.getSelectedIndex()].getPuerta());
-			agentePropWindow.textField_piso.setText(String.valueOf(lista[agentePropWindow.comboBox_propiedad.getSelectedIndex()].getPiso()));
-			agentePropWindow.textField_escalera.setText(lista[agentePropWindow.comboBox_propiedad.getSelectedIndex()].getEscalera());
-			agentePropWindow.textField_Poblacion.setText(lista[agentePropWindow.comboBox_propiedad.getSelectedIndex()].getCiudad());
-			agentePropWindow.textField_Precio.setText(String.valueOf(lista[agentePropWindow.comboBox_propiedad.getSelectedIndex()].getPrecio()));
-			agentePropWindow.textField_titulo.setText(lista[agentePropWindow.comboBox_propiedad.getSelectedIndex()].getNombre());
-			agentePropWindow.spinner.setValue(lista[agentePropWindow.comboBox_propiedad.getSelectedIndex()].getTamanio());
+			agentePropWindow.textField_Calle.setText(lista[agentePropWindow.comboBox.getSelectedIndex()].getDireccion());
+			agentePropWindow.textField_numero.setText(lista[agentePropWindow.comboBox.getSelectedIndex()].getNumero());
+			agentePropWindow.textField_Puerta.setText(lista[agentePropWindow.comboBox.getSelectedIndex()].getPuerta());
+			agentePropWindow.textField_piso.setText(String.valueOf(lista[agentePropWindow.comboBox.getSelectedIndex()].getPiso()));
+			agentePropWindow.textField_escalera.setText(lista[agentePropWindow.comboBox.getSelectedIndex()].getEscalera());
+			agentePropWindow.textField_Poblacion.setText(lista[agentePropWindow.comboBox.getSelectedIndex()].getCiudad());
+			agentePropWindow.textField_Precio.setText(String.valueOf(lista[agentePropWindow.comboBox.getSelectedIndex()].getPrecio()));
+			agentePropWindow.textField_titulo.setText(lista[agentePropWindow.comboBox.getSelectedIndex()].getNombre());
+			agentePropWindow.spinner.setValue(lista[agentePropWindow.comboBox.getSelectedIndex()].getTamanio());
+			agentePropWindow.comboBox_provincia.setSelectedItem(lista[agentePropWindow.comboBox.getSelectedIndex()].getProvincia());
 		
 		}else if(arg0.getActionCommand().equals("Editar")) {
 			System.out.println("Boton editar");
-			Propiedades propiedadEditada = lista[agentePropWindow.comboBox_propiedad.getSelectedIndex()];
+			Propiedades propiedadEditada = lista[agentePropWindow.comboBox.getSelectedIndex()];
 			
 			//Creamos objeto con los nuevos datos
 			
-			propiedadEditada.setNombre(nuevaPropWindow.textTitulo.getText());
-			propiedadEditada.setDireccion(nuevaPropWindow.textCalle.getText());
-			propiedadEditada.setCiudad(nuevaPropWindow.textPobl.getText());
-			propiedadEditada.setProvincia(nuevaPropWindow.comboBox_1.getSelectedItem().toString());
-			propiedadEditada.setPrecio(Float.parseFloat(nuevaPropWindow.textPrecio.getText()));
-			propiedadEditada.setNumero(nuevaPropWindow.textNumero.getText());
-			propiedadEditada.setPuerta(nuevaPropWindow.textPuerta.getText());
-			propiedadEditada.setPiso(Integer.parseInt(nuevaPropWindow.textPiso.getText()));
-			propiedadEditada.setEscalera(nuevaPropWindow.textEscalera.getText());
+			//propiedadEditada.setNombre(nuevaPropWindow.textTitulo.getText());
+			System.out.println(agentePropWindow.textField_titulo.getText());
+			propiedadEditada.setDireccion(agentePropWindow.textField_Calle.getText());
+			propiedadEditada.setCiudad(agentePropWindow.textField_Poblacion.getText());
+			propiedadEditada.setProvincia(agentePropWindow.comboBox_provincia.getSelectedItem().toString());
+			propiedadEditada.setPrecio(Float.parseFloat(agentePropWindow.textField_Precio.getText()));
+			propiedadEditada.setNumero(agentePropWindow.textField_numero.getText());
+			propiedadEditada.setPuerta(agentePropWindow.textField_Puerta.getText());
+			propiedadEditada.setPiso(Integer.parseInt(agentePropWindow.textField_piso.getText()));
+			propiedadEditada.setEscalera(agentePropWindow.textField_escalera.getText());
 			
 			propiedadesDao.actualizarPropiedad(propiedadEditada);//Mete base de datos
 

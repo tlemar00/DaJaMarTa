@@ -49,7 +49,7 @@ public class ControlerAdminWindow implements ActionListener, KeyListener{
 	
 	//Recogemos los eventos que ocurren en la ventana
 	public void actionPerformed(ActionEvent arg0) {
-		//Obtenemos el objeto usuario seg�n el nombre introducido
+		//Obtenemos el objeto usuario según el nombre introducido
 		//Usuarios u = usuarioDao.obtenerUsuario(adminWindow.userText.getText().toString());
 		//No estamos recogiendo en ningun sitio lo de login y tal
 		int categoria = 0;
@@ -85,7 +85,12 @@ public class ControlerAdminWindow implements ActionListener, KeyListener{
 			empleadoDao.borrar(empleadoAEliminar.getIdEmpleado());
 			
 		}else if(arg0.getActionCommand().equals("Ayuda")) {
-			JOptionPane.showMessageDialog(null, "En esta p�gina podr�s consultar los usuarios", null, JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "En esta página podrás: \n "
+					+ "\n Consultar Usuarios: \n 1) Elija un usuario \n 2) Se rellenaran los campos con los datos del usuario seleccionado \n"
+					+ "\n Modificar Usuarios: \n 1) Elija un usuario \n 2) Modifica el campo. \n 3) Pulsa en el botón de 'Modificar'\n "
+					+ "\n Eliminar Usuarios: \n 1) Elija un usuario \n 2) Pulse en el botón de 'Eliminar'\n "
+					+ "\n Añadir Usuarios: \n 1) Ir a opciones \n 2) Seleccionar 'Crear Nuevo Empleado' \n 3) Rellenar todos los campos \n 4) Pulsar en el botón 'Crear empleado'", null, JOptionPane.INFORMATION_MESSAGE);
+		
 		}
 		
 	}

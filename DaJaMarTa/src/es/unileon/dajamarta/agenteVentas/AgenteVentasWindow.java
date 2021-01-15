@@ -65,6 +65,8 @@ public class AgenteVentasWindow extends JFrame{
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Ayuda");
+		mntmNewMenuItem.addKeyListener(listener);
+		mntmNewMenuItem.addActionListener(listener);
 		mnNewMenu.add(mntmNewMenuItem);
 
 		frame.setVisible(true);

@@ -46,13 +46,6 @@ public class EmpleadobbddDAO {
         tx.commit();
     }
     
-    public Empleadobbdd[] obtenerEmpleados(){
-        Query query = session.createQuery("SELECT p FROM Empleadobbdd p");
-        List res = query.list();
-        Empleadobbdd[] miarray = new Empleadobbdd[res.size()];
-        return miarray = (Empleadobbdd[]) res.toArray(miarray);
-    }
-    
     public void actualizarEmpleado(Empleadobbdd empleado) {
     // Hago la consulta HQL
         String consulta = "FROM Empleadobbdd n WHERE n.idEmpleado=:param1";

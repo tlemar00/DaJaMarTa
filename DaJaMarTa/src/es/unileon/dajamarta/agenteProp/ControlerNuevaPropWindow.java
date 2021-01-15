@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import es.unileon.dajamarta.DAO.ClientesDAO;
 import es.unileon.dajamarta.DAO.EmpleadobbddDAO;
@@ -44,6 +45,16 @@ public class ControlerNuevaPropWindow implements ActionListener, KeyListener{
 		nuevaPropWindow.comboBox.addItem("Solar");
 		nuevaPropWindow.comboBox.addItem("Terreno");
 		nuevaPropWindow.comboBox.addItem("Edificio");
+		
+		nuevaPropWindow.comboBox_1.addItem("Ávila");
+		nuevaPropWindow.comboBox_1.addItem("Burgos");
+		nuevaPropWindow.comboBox_1.addItem("León");
+		nuevaPropWindow.comboBox_1.addItem("Palencia");
+		nuevaPropWindow.comboBox_1.addItem("Salamanca");
+		nuevaPropWindow.comboBox_1.addItem("Segovia");
+		nuevaPropWindow.comboBox_1.addItem("Soria");
+		nuevaPropWindow.comboBox_1.addItem("Valladolid");
+		nuevaPropWindow.comboBox_1.addItem("Zamora");
 	}
 	
 	//Recogemos los eventos que ocurren en la ventana
@@ -52,29 +63,51 @@ public class ControlerNuevaPropWindow implements ActionListener, KeyListener{
 		//Usuarios u = usuarioDao.obtenerUsuario(adminWindow.userText.getText().toString());
 		//No estamos recogiendo en ningun sitio lo de login y tal
 		
+		if(nuevaPropWindow.comboBox.getSelectedItem().equals("Piso") ||
+				nuevaPropWindow.comboBox.getSelectedItem().equals("Oficina") ||
+				nuevaPropWindow.comboBox.getSelectedItem().equals("Habitación") ||
+				nuevaPropWindow.comboBox.getSelectedItem().equals("Local")) {
+			
+			nuevaPropWindow.textEscalera.setVisible(true);
+			nuevaPropWindow.textPuerta.setVisible(true);
+			nuevaPropWindow.lblNewLabel_4.setVisible(true);
+			nuevaPropWindow.lblNewLabel_7.setVisible(true);
+		}else {
+			nuevaPropWindow.textEscalera.setVisible(false);
+			nuevaPropWindow.textPuerta.setVisible(false);
+			nuevaPropWindow.lblNewLabel_4.setVisible(false);
+			nuevaPropWindow.lblNewLabel_7.setVisible(false);
+		}
 		
 	
 		if(arg0.getActionCommand().equals("Guardar propiedad")) {//Cuando pulsamos guardar propiedad
 			
-			/*Propiedades p = new Propiedades();
-			Clientes c = new Clientes();
-			Empleadobbdd e = new Empleadobbdd();
-			p.setNombre(nuevaPropWindow.textTitulo.getText());
-			p.setDireccion(nuevaPropWindow.textCalle.getText());
-			p.setCiudad(nuevaPropWindow.textPobl.getText());
-			p.setProvincia("Madrid");
-			p.setPrecio(Float.parseFloat(nuevaPropWindow.textPrecio.getText()));
-			p.setNumero(nuevaPropWindow.textNumero.getText());
-			p.setPuerta(nuevaPropWindow.textPuerta.getText());
-			p.setPiso(1);
-			p.setEscalera("esc");
-			p.setVendido(0);
-			p.setReservado(0);
-			p.setClientes(c);
-			p.setEmpleadobbdd(e);
-			propiedadDao.actualizarPropiedad(p);//Mete base de datos*/
-		} else if(nuevaPropWindow.comboBox.getSelectedItem().equals("Terreno")) {
-			nuevaPropWindow.textEscalera.setVisible(false);
+			if(nuevaPropWindow.textTitulo.getText().length()==0 || nuevaPropWindow.textCalle.getText().length()==0
+					|| nuevaPropWindow.textPobl.getText().length()==0 || nuevaPropWindow.textPrecio.getText().length()==0
+					|| nuevaPropWindow.textNumero.getText().length()==0 || nuevaPropWindow.textPiso.getText().length()==0 
+					|| nuevaPropWindow.comboBox_1.getSelectedItem().toString() == null) {
+				//mensaje de error
+				JOptionPane.showMessageDialog(null, "No se ha añadido algún campo necesario.", null, JOptionPane.ERROR_MESSAGE);
+			}else {
+				Propiedades p = new Propiedades();
+				Clientes c = new Clientes();
+				Empleadobbdd e = new Empleadobbdd();
+				p.setNombre(nuevaPropWindow.textTitulo.getText());
+				p.setDireccion(nuevaPropWindow.textCalle.getText());
+				p.setCiudad(nuevaPropWindow.textPobl.getText());
+				p.setProvincia(nuevaPropWindow.comboBox_1.getSelectedItem().toString());
+				p.setPrecio(Float.parseFloat(nuevaPropWindow.textPrecio.getText()));
+				p.setNumero(nuevaPropWindow.textNumero.getText());
+				p.setPuerta(nuevaPropWindow.textPuerta.getText());
+				p.setPiso(Integer.parseInt(nuevaPropWindow.textPiso.getText()));
+				p.setEscalera(nuevaPropWindow.textEscalera.getText());
+				p.setVendido(0);
+				p.setReservado(0);
+				p.setClientes(c);
+				p.setEmpleadobbdd(e);
+				propiedadDao.actualizarPropiedad(p);//Mete base de datos
+			}
+			
 		}
 	}
 

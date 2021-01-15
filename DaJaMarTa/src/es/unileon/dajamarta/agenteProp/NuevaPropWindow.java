@@ -36,6 +36,7 @@ public class NuevaPropWindow extends JFrame{
 	protected JComboBox comboBox = new JComboBox();
 	protected JTextField textTitulo;
 	protected JComboBox comboBox_1 = new JComboBox();
+	protected JLabel lblNewLabel_4, lblNewLabel_7;
 	
 	private NuevaPropWindow() {
 		JFrame frame = new JFrame("Demo application");
@@ -85,12 +86,12 @@ public class NuevaPropWindow extends JFrame{
 		lblNewLabel_3.setBounds(98, 205, 92, 14);
 		panel.add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_4 = new JLabel("Puerta");
+		lblNewLabel_4 = new JLabel("Puerta");
 		lblNewLabel_4.setBounds(311, 174, 86, 14);
 		panel.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Poblaci\u00F3n");
-		lblNewLabel_5.setBounds(98, 236, 46, 14);
+		lblNewLabel_5.setBounds(98, 236, 59, 14);
 		panel.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Tipo");
@@ -107,7 +108,7 @@ public class NuevaPropWindow extends JFrame{
 		btnNewButton.setBounds(213, 535, 152, 23);
 		panel.add(btnNewButton);
 		
-		JLabel lblNewLabel_7 = new JLabel("Escalera");
+		lblNewLabel_7 = new JLabel("Escalera");
 		lblNewLabel_7.setBounds(311, 205, 73, 14);
 		panel.add(lblNewLabel_7);
 		
@@ -117,7 +118,7 @@ public class NuevaPropWindow extends JFrame{
 		textEscalera.setColumns(10);
 		
 		JLabel lblNewLabel_5_1 = new JLabel("Provincia");
-		lblNewLabel_5_1.setBounds(98, 275, 46, 14);
+		lblNewLabel_5_1.setBounds(98, 275, 59, 14);
 		panel.add(lblNewLabel_5_1);
 		
 		
@@ -125,7 +126,7 @@ public class NuevaPropWindow extends JFrame{
 		panel.add(comboBox_1);
 		
 		JLabel lblNewLabel_8 = new JLabel("Descripci\u00F3n de la propiedad");
-		lblNewLabel_8.setBounds(98, 389, 134, 14);
+		lblNewLabel_8.setBounds(98, 389, 190, 14);
 		panel.add(lblNewLabel_8);
 		
 		textDescrip = new JTextField();
@@ -162,7 +163,7 @@ public class NuevaPropWindow extends JFrame{
 		panel.add(spinner);
 		
 		JLabel lblNewLabel_12 = new JLabel(" construida (m2)");
-		lblNewLabel_12.setBounds(307, 246, 90, 14);
+		lblNewLabel_12.setBounds(307, 246, 108, 14);
 		panel.add(lblNewLabel_12);
 		
 		JLabel lblNewLabel_13 = new JLabel("Precio fijado por el vendedor (\u20AC)");
